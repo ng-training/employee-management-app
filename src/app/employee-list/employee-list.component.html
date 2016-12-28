@@ -1,0 +1,8 @@
+<ul>
+  <li *ngFor="let employee of exmployees">
+    <span>{{ employee.name }}</span>
+    <small>( {{ employee.position }} )</small>
+    <img [src]="employee.avatar"
+         [alt]="employee.name">
+  </li>
+</ul>
