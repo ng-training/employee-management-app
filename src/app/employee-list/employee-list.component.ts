@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeListComponent {
 
-  exmployees = [{
+  private _employees = [{
     name: 'John Doe',
     position: 'software developer',
     skills: ['javascript', 'html', 'css'],
@@ -44,4 +44,14 @@ export class EmployeeListComponent {
     avatar: 'https://randomuser.me/api/portraits/thumb/men/16.jpg'
   }];
 
+  employees: Array<any>;
+
+  constructor() {
+    this.employees = this._employees;
+  }
+
+  filterEmployees(text: string) {
+    const hasSearchText = text && text.length > 0;
+    this.employees = hasSearchText ? this._employees.filter(e => e.name.indexOf(text) > 0) : this._employees;
+  }
 }
