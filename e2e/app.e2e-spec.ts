@@ -1,6 +1,6 @@
 import { EmployeeManagementAppPage } from './app.po';
 
-describe('employee-management-app App', function() {
+describe('employee-management-app App', () => {
   let page: EmployeeManagementAppPage;
 
   beforeEach(() => {
