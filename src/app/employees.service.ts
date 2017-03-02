@@ -1,11 +1,19 @@
 import { Injectable } from '@angular/core';
+import { LoggerService } from "./logger.service";
 
 @Injectable()
 export class EmployeesService {
 
-  constructor() { }
+  private _logger: LoggerService;
+
+  constructor(logger: LoggerService) {
+    this._logger = logger;
+  }
 
   getEmployees() {
+
+    this._logger.log("Get employees");
+
     return [{
       name: 'John Doe',
       position: 'software developer',
