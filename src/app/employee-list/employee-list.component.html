@@ -5,11 +5,13 @@
 
 <ul *ngIf="employees"
     class="row list-group">
-  <li *ngFor="let employee of employees" 
+  <li *ngFor="let employee of employees"
       class="list-group-item">
-    <span>{{ employee.name }}</span>
-    <small>( {{ employee.position }} )</small>
-    <img [src]="employee.avatar" 
-         [alt]="employee.name">
+    <a [routerLink]="['/employees', employee.name]">
+      <span>{{ employee.name }}</span>
+      <small>( {{ employee.position }} )</small>
+      <img [src]="employee.avatar"
+           [alt]="employee.name">
+    </a>
   </li>
 </ul>

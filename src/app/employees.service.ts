@@ -51,5 +51,13 @@ export class EmployeesService {
     this._logger.log("Get employees");
 
     return this._employees;
+
+  }
+
+  getEmployeeByName(name: string) {
+
+    this._logger.log(`Get employee ${name}`);
+
+    return this._employees.find(e => e.name === name);
   }
 }

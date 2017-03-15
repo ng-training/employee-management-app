@@ -11,6 +11,7 @@ import { EmployeesService } from "./employees.service";
 import { LoggerService } from "./logger.service";
 import { routes } from "./app.routes";
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AppComponent,
     EmployeeListComponent,
     SearchComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    EmployeeDetailsComponent
   ],
   imports: [
     BrowserModule,
