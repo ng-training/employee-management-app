@@ -6,19 +6,19 @@ export class LoggerService {
   constructor() { }
 
   log(value) {
-    console.log("[LOG]", value);
+    console.log('[LOG]', value);
   }
 
   info(value) {
-    console.log("[INFO]", value);
+    console.log('[INFO]', value);
   }
 
   warn(value) {
-    console.warn("[WARN]", value);
+    console.warn('[WARN]', value);
   }
 
   error(value) {
-    console.error("[ERROR]", value);
+    console.error('[ERROR]', value);
   }
 
 }
