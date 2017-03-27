@@ -1,19 +1,20 @@
-import { Routes } from "@angular/router";
-import { EmployeeListComponent } from "./components/index";
-import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
+import { Routes } from '@angular/router';
+import { EmployeeListComponent,
+         PageNotFoundComponent,
+        } from './components/index';
 
 const routes: Routes = [
   {
-    path: "employees",
+    path: 'employees',
     component: EmployeeListComponent
   },
   {
-    path: "",
-    redirectTo: "/employees",
-    pathMatch: "full"
+    path: '',
+    redirectTo: '/employees',
+    pathMatch: 'full'
   },
   {
-    path: "**",
+    path: '**',
     component: PageNotFoundComponent
   }
 ];
