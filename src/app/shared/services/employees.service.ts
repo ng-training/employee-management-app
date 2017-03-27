@@ -43,7 +43,6 @@ export class EmployeesService {
   constructor() { }
 
   getEmployees() {
-    
     return this._employees;
   }
 }
