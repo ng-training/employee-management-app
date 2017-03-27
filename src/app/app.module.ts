@@ -9,9 +9,9 @@ import { AppComponent } from './app.component';
 import { routes } from './app.routes';
 
 import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 
 import { EmployeeListComponent,
-         SearchComponent,
          PageNotFoundComponent,
          EmployeeDetailsComponent,
         } from './components/index';
@@ -20,7 +20,6 @@ import { EmployeeListComponent,
   declarations: [
     AppComponent,
     EmployeeListComponent,
-    SearchComponent,
     PageNotFoundComponent,
     EmployeeDetailsComponent
   ],
@@ -30,6 +29,7 @@ import { EmployeeListComponent,
     HttpModule,
     RouterModule.forRoot(routes),
     CoreModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
