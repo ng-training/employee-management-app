@@ -4,8 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { EmployeeListComponent } from './employee-list/employee-list.component';
-import { SearchComponent } from './search/search.component';
+import { EmployeeListComponent,
+         SearchComponent,
+        } from './components/index';
 
 @NgModule({
   declarations: [
