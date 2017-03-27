@@ -1,8 +1,8 @@
-import { EmployeeDetailsComponent } from "./employee-details/employee-details.component";
-
 import { Routes } from '@angular/router';
+
 import { EmployeeListComponent,
          PageNotFoundComponent,
+         EmployeeDetailsComponent
         } from './components/index';
 
 const routes: Routes = [
@@ -11,7 +11,7 @@ const routes: Routes = [
     component: EmployeeListComponent
   },
   {
-    path: "employees/:id",
+    path: 'employees/:id',
     component: EmployeeDetailsComponent
   },
   {

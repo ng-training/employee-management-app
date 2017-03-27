@@ -6,8 +6,6 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
-import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
-
 import { routes } from './app.routes';
 
 import { EmployeesService,
@@ -17,6 +15,7 @@ import { EmployeesService,
 import { EmployeeListComponent,
          SearchComponent,
          PageNotFoundComponent,
+         EmployeeDetailsComponent,
         } from './components/index';
 
 @NgModule({
