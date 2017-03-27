@@ -5,13 +5,17 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from "@angular/router";
 
 import { AppComponent } from './app.component';
-import { EmployeeListComponent } from './employee-list/employee-list.component';
-import { SearchComponent } from './search/search.component';
-import { EmployeesService } from "./employees.service";
-import { LoggerService } from "./logger.service";
+
 import { routes } from "./app.routes";
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
+import { EmployeesService,
+         LoggerService,
+         } from './shared/index';
+
+import { EmployeeListComponent,
+         SearchComponent,
+        } from './components/index';
 
 @NgModule({
   declarations: [
