@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LoggerService } from "./logger.service";
+import { LoggerService } from '../logger/logger.service';
 
 @Injectable()
 export class EmployeesService {
@@ -48,7 +48,7 @@ export class EmployeesService {
   }
 
   getEmployees() {
-    this._logger.log("Get employees");
+    this._logger.log('Get employees');
 
     return this._employees;
   }
