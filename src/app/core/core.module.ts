@@ -3,12 +3,13 @@ import { NgModule } from '@angular/core';
 import {
   EmployeesService,
   LoggerService,
-  ReversePipe
+  ReversePipe,
+  ListPipe
  } from './index';
 
 @NgModule({
-    declarations: [ReversePipe],
+    declarations: [ReversePipe, ListPipe],
     providers: [EmployeesService, LoggerService],
-    exports: [ReversePipe]
+    exports: [ReversePipe, ListPipe]
 })
 export class CoreModule { }
