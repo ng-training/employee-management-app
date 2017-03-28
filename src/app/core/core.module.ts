@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 
-import { EmployeesService,
-         LoggerService,
+import {
+  EmployeesService,
+  LoggerService,
+  ReversePipe
  } from './index';
-import { ReversePipe } from "./pipes/reverse/reverse.pipe";
 
 @NgModule({
     declarations: [ReversePipe],
