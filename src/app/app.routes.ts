@@ -2,7 +2,8 @@ import { Routes } from '@angular/router';
 
 import { EmployeeListComponent,
          PageNotFoundComponent,
-         EmployeeDetailsComponent
+         EmployeeDetailsComponent,
+         EmployeeDetailsReactiveComponent,
         } from './components/index';
 
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
   },
   {
     path: 'employees/:id',
-    component: EmployeeDetailsComponent
+    component: EmployeeDetailsReactiveComponent
+    // component: EmployeeDetailsComponent
   },
   {
     path: '',

@@ -8,7 +8,7 @@
   <li *ngFor="let employee of employees"
       class="list-group-item">
     <a [routerLink]="['/employees', employee.name]">
-      <span>{{ employee.name | reverse }}</span>
+      <span>{{ employee.name }}</span>
       <small>( {{ employee.position }} )</small>
       <img [src]="employee.avatar"
            [alt]="employee.name">

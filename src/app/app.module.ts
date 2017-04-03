@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
@@ -14,6 +14,7 @@ import { SharedModule } from './shared/shared.module';
 import { EmployeeListComponent,
          PageNotFoundComponent,
          EmployeeDetailsComponent,
+         EmployeeDetailsReactiveComponent,
         } from './components/index';
 
 @NgModule({
@@ -21,11 +22,13 @@ import { EmployeeListComponent,
     AppComponent,
     EmployeeListComponent,
     PageNotFoundComponent,
-    EmployeeDetailsComponent
+    EmployeeDetailsComponent,
+    EmployeeDetailsReactiveComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot(routes),
     CoreModule,

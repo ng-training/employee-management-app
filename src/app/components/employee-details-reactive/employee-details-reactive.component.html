@@ -1,0 +1,45 @@
+<form [formGroup]="employeeDetailsForm"
+      (ngSubmit)="onSubmit()">
+
+    <div>
+    <label for="employeeName">Name</label>
+    <input type="text" 
+           name="employeeName" 
+           id="employeeName" 
+           [formControl]="employeeName">
+
+      <div [hidden]="employeeName.valid || employeeName.untouched">
+        <div [hidden]="!employeeName.hasError('minlength')">
+          Name can not be shorter than 5 characters.
+        </div>
+        <div [hidden]="!employeeName.hasError('required')">
+          Name is required.
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <label for="employeePosition">Position</label>
+      <input type="text" 
+            name="employeePosition" 
+            id="employeePosition" 
+            [formControl]="employeePosition">
+
+     <div [hidden]="employeePosition.valid || employeePosition.untouched">
+        <div [hidden]="!employeePosition.hasError('required')">
+          Position is required.
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <label for="employeeSkills">Skills</label>
+      <input type="text" 
+            name="employeeSkills" 
+            id="employeeSkills" 
+            [formControl]="employeeSkills">
+    </div>
+
+    <button type="submit"
+            [disabled]="!employeeDetailsForm.valid">Save</button>
+</form>
