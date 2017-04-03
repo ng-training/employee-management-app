@@ -7,7 +7,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 })
 export class EmployeeDetailsReactiveComponent {
   employeeName = new FormControl('', [Validators.required, Validators.minLength(5)]);
-  employeePosition = new FormControl('', [Validators.required]);
+  employeePosition = new FormControl('', [Validators.required, this.hasDigit(2, 'MustHave2')]);
   employeeSkills = new FormControl('');
 
   employeeDetailsForm: FormGroup = this.formBuilder.group({
@@ -20,5 +20,11 @@ export class EmployeeDetailsReactiveComponent {
 
    onSubmit() {
      console.log(this.employeeDetailsForm.value);
+   }
+
+   hasDigit(digit: number, error: string) {
+     return function(input: FormControl) {
+       return input.value.indexOf(digit) >= 0 ? null : { [error]: true };
+     };
    }
 }

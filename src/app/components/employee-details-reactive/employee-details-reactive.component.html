@@ -20,7 +20,7 @@
 
     <div>
       <label for="employeePosition">Position</label>
-      <input type="text" 
+      <input type="text"
             name="employeePosition" 
             id="employeePosition" 
             [formControl]="employeePosition">
@@ -28,6 +28,9 @@
      <div [hidden]="employeePosition.valid || employeePosition.untouched">
         <div [hidden]="!employeePosition.hasError('required')">
           Position is required.
+        </div>
+        <div [hidden]="!employeePosition.hasError('MustHave2')">
+          Must contain 2
         </div>
       </div>
     </div>
