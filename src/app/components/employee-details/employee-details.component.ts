@@ -13,8 +13,8 @@ export class EmployeeDetailsComponent implements OnInit {
   constructor(public route: ActivatedRoute, public employeesService: EmployeesService) { }
 
   ngOnInit() {
-    const name = this.route.snapshot.params['id'];
+    const id = this.route.snapshot.params['id'];
 
-    this.employee = this.employeesService.getEmployeeByName(name);
+    this.employee = this.employeesService.getEmployeeById(id);
   }
 }
