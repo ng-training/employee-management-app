@@ -7,10 +7,10 @@
     class="row list-group">
   <li *ngFor="let employee of employees"
       class="list-group-item">
-    <a [routerLink]="['/employees', employee.name]">
+    <a [routerLink]="['/employees', employee.id]">
       <span>{{ employee.name | reverse }}</span>
       <small>( {{ employee.position }} )</small>
-      <img [src]="employee.avatar"
+      <img [src]="employee.picture"
            [alt]="employee.name">
     </a>
   </li>

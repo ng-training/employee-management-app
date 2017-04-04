@@ -4,12 +4,12 @@ import {
   EmployeesService,
   LoggerService,
   ReversePipe,
-  ListPipe
+  StringifyPipe
  } from './index';
 
 @NgModule({
-    declarations: [ReversePipe, ListPipe],
+    declarations: [ReversePipe, StringifyPipe],
     providers: [EmployeesService, LoggerService],
-    exports: [ReversePipe, ListPipe]
+    exports: [ReversePipe, StringifyPipe]
 })
 export class CoreModule { }
