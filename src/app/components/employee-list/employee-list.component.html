@@ -5,11 +5,11 @@
 
 <ul *ngIf="employees"
     class="row list-group">
-  <li *ngFor="let employee of employees" 
+  <li *ngFor="let employee of employees"
       class="list-group-item">
     <span>{{ employee.name }}</span>
     <small>( {{ employee.position }} )</small>
-    <img [src]="employee.avatar" 
+    <img [src]="employee.picture"
          [alt]="employee.name">
   </li>
 </ul>
