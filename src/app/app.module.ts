@@ -23,7 +23,7 @@ import { EmployeeListComponent,
     EmployeeListComponent,
     PageNotFoundComponent,
     EmployeeDetailsComponent,
-    EmployeeDetailsReactiveComponent
+    EmployeeDetailsReactiveComponent,
   ],
   imports: [
     BrowserModule,

@@ -15,6 +15,7 @@ export class EmployeeDetailsReactiveComponent implements OnInit {
   employeePosition: FormControl;
   employeeEmail: FormControl;
   employeeDetailsForm: FormGroup;
+  employeeAddress: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -32,7 +33,7 @@ export class EmployeeDetailsReactiveComponent implements OnInit {
   }
 
   ngOnInit() {
-    const id = this.route.snapshot.params[ 'id' ];
+    const id = this.route.snapshot.params['id'];
     this.employee = this.employeesService.getEmployeeById(id);
 
     this.setupForm();
@@ -43,10 +44,17 @@ export class EmployeeDetailsReactiveComponent implements OnInit {
     this.employeePosition = new FormControl(this.employee.position, [ Validators.required, this.hasDigit(2, 'MustHave2') ]);
     this.employeeEmail = new FormControl(this.employee.email, [Validators.required]);
 
+    this.employeeAddress = this.formBuilder.group({
+      city: [this.employee.address.city],
+      number: [this.employee.address.number],
+      street: [this.employee.address.street],
+    });
+
     this.employeeDetailsForm = this.formBuilder.group({
       employeeName: this.employeeName,
       employeePosition: this.employeePosition,
       employeeEmail: this.employeeEmail,
+      employeeAddress: this.employeeAddress,
     });
   }
 }
