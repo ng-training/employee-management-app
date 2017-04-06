@@ -31,8 +31,8 @@ export class EmployeeDetailsReactiveComponent implements OnInit {
   }
 
   ngOnInit() {
-    const name = this.route.snapshot.params[ 'id' ];
-    this.employee = this.employeesService.getEmployeeByName(name);
+    const id = this.route.snapshot.params[ 'id' ];
+    this.employee = this.employeesService.getEmployeeById(id);
 
     this.setupForm();
   }
