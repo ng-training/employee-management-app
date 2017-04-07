@@ -8,7 +8,8 @@ import { AppComponent } from './app.component';
 
 import { routes } from './app.routes';
 
-import { EmployeesService,
+
+import { EmployeeService,
          LoggerService,
          } from './shared/index';
 
@@ -32,7 +33,7 @@ import { EmployeeListComponent,
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [EmployeesService, LoggerService],
+  providers: [EmployeeService, LoggerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
