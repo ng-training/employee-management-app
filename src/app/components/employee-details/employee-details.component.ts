@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
-import { EmployeesService } from '../../core/index';
+import { EmployeeService } from '../../core/index';
 
 @Component({
   selector: 'app-employee-details',
@@ -10,12 +9,12 @@ import { EmployeesService } from '../../core/index';
 export class EmployeeDetailsComponent implements OnInit {
   employee: any;
 
-  constructor(public route: ActivatedRoute, public employeesService: EmployeesService) { }
+  constructor(public route: ActivatedRoute, public employeeService: EmployeeService) { }
 
   ngOnInit() {
     const id = this.route.snapshot.params['id'];
 
-    this.employee = this.employeesService.getEmployeeById(id);
+    this.employee = this.employeeService.getEmployeeById(id);
   }
 
   changeAddress() {
