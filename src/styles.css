@@ -8,3 +8,8 @@
   margin-top: -32px;
   margin-left: -32px;
 }
+
+.list-group.employee-list .list-group-item img {
+  margin-top: 5px;
+  margin-right: 20px;
+}
