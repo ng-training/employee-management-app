@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 
 import {
-  EmployeesService,
+  EmployeeService,
   LoggerService,
   ReversePipe
  } from './index';
 
 @NgModule({
     declarations: [ReversePipe],
-    providers: [EmployeesService, LoggerService],
+    providers: [EmployeeService, LoggerService],
     exports: [ReversePipe]
 })
 export class CoreModule { }
