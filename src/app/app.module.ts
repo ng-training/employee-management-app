@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
-import { EmployeesService,
+import { EmployeeService,
          LoggerService,
          } from './shared/index';
 
@@ -24,7 +24,7 @@ import { EmployeeListComponent,
     FormsModule,
     HttpModule
   ],
-  providers: [EmployeesService, LoggerService],
+  providers: [EmployeeService, LoggerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
