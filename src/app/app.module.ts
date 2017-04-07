@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { EmployeesService } from './shared/index';
+import { EmployeeService } from './shared/index';
 
 import { EmployeeListComponent,
          SearchComponent,
@@ -21,7 +21,7 @@ import { EmployeeListComponent,
     FormsModule,
     HttpModule
   ],
-  providers: [EmployeesService],
+  providers: [EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

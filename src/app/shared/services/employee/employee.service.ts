@@ -1,9 +1,25 @@
 import { Injectable } from '@angular/core';
 
-@Injectable()
-export class EmployeesService {
+export class Address {
+  street: string;
+  number: string;
+  city: string;
+}
 
-  private _employees = [
+export class Employee {
+  id: string;
+  picture: string;
+  name: string;
+  email: string;
+  phone: string;
+  address: Address;
+  position: string;
+}
+
+@Injectable()
+export class EmployeeService {
+
+  private _employees: Employee[] = [
     {
       "id": "ae7b7cce-57b2-4a79-ba23-4fbc170fae80",
       "picture": "https://randomuser.me/api/portraits/thumb/women/16.jpg",
@@ -138,7 +154,7 @@ export class EmployeesService {
 
   constructor() { }
 
-  getEmployees() {
+  getEmployees(): Employee[] {
     return this._employees;
   }
 }
