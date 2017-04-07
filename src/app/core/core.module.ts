@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 
-import { EmployeesService,
+import { EmployeeService,
          LoggerService,
  } from './index';
 
 @NgModule({
-    providers: [EmployeesService, LoggerService]
+    providers: [EmployeeService, LoggerService]
 })
 export class CoreModule { }
