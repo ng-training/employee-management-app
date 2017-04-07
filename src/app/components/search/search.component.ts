@@ -10,7 +10,7 @@ import {
   selector: 'app-search',
   template: `
   <input placeholder="search..."
-       class="input-lg"
+       class="form-control"
        #searchInput
        (keyup)="onKeyUp(searchInput.value)">
   `
