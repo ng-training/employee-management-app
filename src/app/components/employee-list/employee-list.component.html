@@ -3,6 +3,11 @@
             (textChanged)="searchStream$.next($event)">
 </app-search>
 
+<div class="list-group">
+  <input type="checkbox" id="empFilter" #filterCheck (click)="filterStream$.next(filterCheck.checked)">
+  <label for="empFilter">Show only developers</label>
+</div>
+
 <div class="list-group employee-list">
   <a [routerLink]="['/employees', employee.id]" class="list-group-item" *ngFor="let employee of employees">
     <img class="pull-left" [src]="employee.picture"
