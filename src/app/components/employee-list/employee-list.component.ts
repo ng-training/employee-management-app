@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeesService } from '../../core/index';
+import { EmployeeService } from '../../core/index';
 
 @Component({
   selector: 'app-employee-list',
@@ -10,8 +10,8 @@ export class EmployeeListComponent {
   private _employees: Array<any>;
   employees: Array<any>;
 
-  constructor(private employeesService: EmployeesService) {
-    this._employees = employeesService.getEmployees();
+  constructor(private employeeService: EmployeeService) {
+    this._employees = employeeService.getEmployees();
     this.employees = this._employees;
   }
 

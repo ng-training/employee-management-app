@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
-import { EmployeesService } from '../../core/index';
+import { EmployeeService } from '../../core/index';
 
 @Component({
   selector: 'app-employee-details-reactive',
@@ -19,7 +19,7 @@ export class EmployeeDetailsReactiveComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private employeesService: EmployeesService,
+    private employeesService: EmployeeService,
   ) { }
 
   onSubmit() {
