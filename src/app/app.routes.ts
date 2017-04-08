@@ -13,8 +13,8 @@ const routes: Routes = [
   },
   {
     path: 'employees/:id',
-    component: EmployeeDetailsReactiveComponent
-    // component: EmployeeDetailsComponent
+    // component: EmployeeDetailsReactiveComponent
+    component: EmployeeDetailsComponent
   },
   {
     path: '',

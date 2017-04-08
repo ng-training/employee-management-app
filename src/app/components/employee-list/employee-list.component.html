@@ -1,6 +1,6 @@
 <app-search class="row"
             [triggerIfEmpty]="true"
-            (textChanged)="filterEmployees($event)">
+            (textChanged)="searchStream$.next($event)">
 </app-search>
 
 <div class="list-group employee-list">
