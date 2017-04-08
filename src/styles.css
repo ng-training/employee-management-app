@@ -1,2 +1,23 @@
 @import '/assets/nc3-3.3/css/bootstrap.min.css';
 @import '/assets/nc3-3.3/css/nc.min.css';
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -32px;
+  margin-left: -32px;
+}
+
+.list-group.employee-list .list-group-item img {
+  margin-top: 5px;
+  margin-right: 20px;
+}
+
+.form-group.address-group .form-control {
+  margin-bottom: 6px;
+}
+
+.form-group.address-group .form-control:last-child {
+  margin-bottom: 0;
+}

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import {
-  EmployeesService,
+  EmployeeService,
   LoggerService,
   ReversePipe,
   StringifyPipe
@@ -9,7 +9,7 @@ import {
 
 @NgModule({
     declarations: [ReversePipe, StringifyPipe],
-    providers: [EmployeesService, LoggerService],
+    providers: [EmployeeService, LoggerService],
     exports: [ReversePipe, StringifyPipe]
 })
 export class CoreModule { }
