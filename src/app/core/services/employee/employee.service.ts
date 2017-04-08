@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
 import { LoggerService } from "../logger/logger.service";
+import { Http, Response } from "@angular/http";
+import { Observable } from "rxjs";
+
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 export class Address {
   street: string;
@@ -21,6 +26,8 @@ export class Employee {
 export class EmployeeService {
 
   private _logger: LoggerService;
+  private _http: Http;
+  private _apiUrl: string = "http://localhost:3000/api/employees";
 
   private _employees: Employee[] = [
     {
@@ -155,15 +162,17 @@ export class EmployeeService {
     }
   ];
 
-  constructor(logger: LoggerService) {
+  constructor(logger: LoggerService, http: Http) {
     this._logger = logger;
+    this._http = http;
   }
 
-  getEmployees(): Employee[] {
+  getEmployees(): Observable<Employee[]> {
     this._logger.log('Get employees');
 
-    return this._employees;
-
+    return this._http.get(this._apiUrl)
+      .map(this.extractData)
+      .catch(this.handleError);
   }
 
   getEmployeeById(id: string): Employee {
@@ -173,4 +182,12 @@ export class EmployeeService {
     return this._employees.find(e => e.id === id);
   }
 
+  extractData(response: Response): Employee[] {
+    return response.json();
+  }
+
+  handleError(error: Response | any) {
+
+    return Observable.throw(error);
+  }
 }
