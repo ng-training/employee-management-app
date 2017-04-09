@@ -1,4 +1,5 @@
-<div class="list-group employee-list">
+<div class="list-group employee-list"
+     *ngIf="employees">
   <a href="#" class="list-group-item" *ngFor="let employee of employees">
     <img class="pull-left" [src]="employee.picture"
          [alt]="employee.name">
