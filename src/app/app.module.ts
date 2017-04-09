@@ -8,13 +8,15 @@ import { EmployeeService } from './shared/index';
 
 import { EmployeeListComponent,
          SearchComponent,
+         EmployeeViewComponent,
         } from './components/index';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeListComponent,
-    SearchComponent
+    SearchComponent,
+    EmployeeViewComponent
   ],
   imports: [
     BrowserModule,
