@@ -11,13 +11,15 @@ import { EmployeeService,
 
 import { EmployeeListComponent,
          SearchComponent,
+         EmployeeViewComponent,
         } from './components/index';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeListComponent,
-    SearchComponent
+    SearchComponent,
+    EmployeeViewComponent
   ],
   imports: [
     BrowserModule,
