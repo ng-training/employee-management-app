@@ -6,13 +6,15 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { EmployeeListComponent,
          SearchComponent,
+         EmployeeViewComponent,
         } from './components/index';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeListComponent,
-    SearchComponent
+    SearchComponent,
+    EmployeeViewComponent
   ],
   imports: [
     BrowserModule,
