@@ -8,12 +8,7 @@ import {
 
 @Component({
   selector: 'app-search',
-  template: `
-  <input placeholder="search..."
-       class="form-control"
-       #searchInput
-       (keyup)="onKeyUp(searchInput.value)">
-  `
+  templateUrl: './search.component.html'
 })
 export class SearchComponent {
 
