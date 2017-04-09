@@ -16,6 +16,7 @@ import { EmployeeService,
 import { EmployeeListComponent,
          SearchComponent,
          PageNotFoundComponent,
+         EmployeeViewComponent,
         } from './components/index';
 
 @NgModule({
@@ -23,7 +24,8 @@ import { EmployeeListComponent,
     AppComponent,
     EmployeeListComponent,
     SearchComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    EmployeeViewComponent,
   ],
   imports: [
     BrowserModule,
