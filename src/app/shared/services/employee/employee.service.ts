@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LoggerService } from "../logger/logger.service";
+import { LoggerService } from '../logger/logger.service';
 
 export class Address {
   street: string;
