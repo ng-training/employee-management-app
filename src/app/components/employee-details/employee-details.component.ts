@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeService } from '../../core/index';
-import { Employee } from "../../core/services/employee/employee.service";
+import { Employee } from '../../core/services/employee/employee.service';
 
 @Component({
   selector: 'app-employee-details',
@@ -22,14 +22,14 @@ export class EmployeeDetailsComponent implements OnInit {
   }
 
   changeAddress() {
-    this.employee.address.street += "2";
+    this.employee.address.street += '2';
   }
 
   save(employee: Employee) {
     employee.id = this.employee.id;
     this.employeeService.updateEmployee(employee)
       .subscribe(() => {
-        this.router.navigate(["/employees"]);
+        this.router.navigate(['/employees']);
       });
   }
 }

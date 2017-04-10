@@ -7,6 +7,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class StringifyPipe implements PipeTransform {
 
   transform(value: any): string {
-    return value ? Object.keys(value).map((key) => value[key]).join(", ") : "";
+    return value ? Object.keys(value).map((key) => value[key]).join(', ') : '';
   }
 }
