@@ -14,6 +14,7 @@ import { SharedModule } from './shared/shared.module';
 import { EmployeeListComponent,
          PageNotFoundComponent,
          EmployeeDetailsComponent,
+         EmployeeViewComponent,
         } from './components/index';
 
 @NgModule({
@@ -21,7 +22,8 @@ import { EmployeeListComponent,
     AppComponent,
     EmployeeListComponent,
     PageNotFoundComponent,
-    EmployeeDetailsComponent
+    EmployeeDetailsComponent,
+    EmployeeViewComponent,
   ],
   imports: [
     BrowserModule,
