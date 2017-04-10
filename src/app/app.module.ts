@@ -15,6 +15,7 @@ import { EmployeeListComponent,
          PageNotFoundComponent,
          EmployeeDetailsComponent,
          EmployeeDetailsReactiveComponent,
+         EmployeeViewComponent,
         } from './components/index';
 
 @NgModule({
@@ -23,7 +24,8 @@ import { EmployeeListComponent,
     EmployeeListComponent,
     PageNotFoundComponent,
     EmployeeDetailsComponent,
-    EmployeeDetailsReactiveComponent
+    EmployeeDetailsReactiveComponent,
+    EmployeeViewComponent,
   ],
   imports: [
     BrowserModule,
