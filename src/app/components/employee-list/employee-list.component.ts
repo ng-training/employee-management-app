@@ -10,7 +10,8 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/withLatestFrom';
 import 'rxjs/add/operator/startWith';
-import { Employee } from "../../core/services/employee/employee.service";
+
+import { Employee } from '../../core/services/employee/employee.service';
 
 @Component({
   selector: 'app-employee-list',

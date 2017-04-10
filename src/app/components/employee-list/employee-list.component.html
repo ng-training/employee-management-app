@@ -15,10 +15,7 @@
 </form>
 
 <div class="list-group employee-list">
-  <a [routerLink]="['/employees', employee.id]" class="list-group-item" *ngFor="let employee of employees">
-    <img class="pull-left" [src]="employee.picture"
-         [alt]="employee.name">
-    <h4 class="list-group-item-heading">{{ employee.name }}</h4>
-    <p class="list-group-item-text">({{ employee.position }})</p>
+  <a href="#" [routerLink]="['/employees', employee.id]" class="list-group-item" *ngFor="let employee of employees">
+    <app-employee-view [employee]="employee"></app-employee-view>
   </a>
 </div>
