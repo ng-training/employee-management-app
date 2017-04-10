@@ -18,6 +18,6 @@ export class EmployeeDetailsComponent implements OnInit {
   }
 
   changeAddress() {
-    this.employee.address.street += "2";
+    this.employee.address.street += '2';
   }
 }
