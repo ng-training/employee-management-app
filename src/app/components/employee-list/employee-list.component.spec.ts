@@ -8,6 +8,7 @@ import { EmployeeListComponent } from './employee-list.component';
 import { EmployeeService, employees } from '../../core/services/employee/employee.service';
 import { LoggerService } from '../../core/services/logger/logger.service';
 import { Observable } from "rxjs";
+import { EmployeeViewComponent } from "../employee-view/employee-view.component";
 
 describe('EmployeeListComponent', () => {
   let component: EmployeeListComponent;
@@ -66,7 +67,7 @@ describe('EmployeeListComponent with stub', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EmployeeListComponent ],
+      declarations: [ EmployeeListComponent, EmployeeViewComponent ],
       schemas: [NO_ERRORS_SCHEMA],
       providers: [{
         provide: EmployeeService,
