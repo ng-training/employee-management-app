@@ -17,7 +17,7 @@ describe('EmployeeListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EmployeeListComponent ],
+      declarations: [ EmployeeListComponent, EmployeeViewComponent ],
       schemas: [NO_ERRORS_SCHEMA],
       providers: [EmployeeService, LoggerService],
       imports: [HttpModule],
