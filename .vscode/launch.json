@@ -1,0 +1,22 @@
+{
+  // Use IntelliSense to learn about possible Node.js debug attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "attach",
+      "name": "Attach to Chrome",
+      "port": 9222,
+      "url": "http://localhost:4200/employees"
+      // "sourceMaps": true,
+      //"sourceMapPathOverrides": {
+      //  "app/*": "${workspaceRoot}/src/app/*"
+     // }
+      // "diagnosticLogging": true,
+      // "webRoot": "${workspaceRoot}"
+      //"webRoot": "${workspaceRoot}/dist/"
+    }
+  ]
+}
