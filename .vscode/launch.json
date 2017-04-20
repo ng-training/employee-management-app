@@ -5,18 +5,23 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Attach to Chrome",
       "type": "chrome",
       "request": "attach",
-      "name": "Attach to Chrome",
       "port": 9222,
-      "url": "http://localhost:4200/employees"
-      // "sourceMaps": true,
-      //"sourceMapPathOverrides": {
-      //  "app/*": "${workspaceRoot}/src/app/*"
-     // }
-      // "diagnosticLogging": true,
-      // "webRoot": "${workspaceRoot}"
-      //"webRoot": "${workspaceRoot}/dist/"
+      "url": "http://localhost:4200",
+      "sourceMaps": true,
+      "webRoot": "${workspaceRoot}",
+      "trace": true
+    }, {
+      "name": "Start Chrome",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9222,
+      "url": "http://localhost:4200",
+      "sourceMaps": true,
+      "webRoot": "${workspaceRoot}",
+      "trace": true
     }
   ]
 }
