@@ -5,10 +5,11 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { RouterModule } from '@angular/router';
 
 import { EmployeeListComponent } from './employee-list.component';
-import { SearchComponent,
-         EmployeeViewComponent } from 'app/components';
+import { EmployeeViewComponent } from 'app/components';
 import { EmployeeService,
-         LoggerService } from 'app/core';
+  LoggerService
+} from 'app/core';
+import { SharedModule } from 'app/shared/shared.module';
 
 describe('EmployeeListComponent', () => {
   let component: EmployeeListComponent;
@@ -18,7 +19,6 @@ describe('EmployeeListComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         EmployeeListComponent,
-        SearchComponent,
         EmployeeViewComponent,
       ],
       providers: [
@@ -28,6 +28,7 @@ describe('EmployeeListComponent', () => {
       imports: [
         RouterTestingModule,
         RouterModule,
+        SharedModule,
       ],
     })
     .compileComponents();
