@@ -5,13 +5,14 @@ import { EmployeeService } from '../../shared/index';
   selector: 'app-employee-list',
   templateUrl: './employee-list.component.html',
 })
-export class EmployeeListComponent {
-
+export class EmployeeListComponent implements OnInit {
   private _employees: Array<any>;
   employees: Array<any>;
 
-  constructor(private employeesService: EmployeeService) {
-    this._employees = employeesService.getEmployees();
+  constructor(private employeesService: EmployeeService) { }
+
+  ngOnInit(): void {
+    this._employees = this.employeesService.getEmployees();
     this.employees = this._employees;
   }
 

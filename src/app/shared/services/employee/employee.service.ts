@@ -152,8 +152,6 @@ export class EmployeeService {
     }
   ];
 
-  constructor() { }
-
   getEmployees(): Employee[] {
     return this._employees;
   }
