@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TestBed, async } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
@@ -7,7 +8,8 @@ import { EmployeeListComponent,
          SearchComponent } from 'app/components';
 
 import { EmployeeService,
-         LoggerService } from 'app/shared';
+  LoggerService
+} from 'app/shared';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -21,7 +23,8 @@ describe('AppComponent', () => {
       providers: [
         EmployeeService,
         LoggerService,
-        ]
+        ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   }));
 
