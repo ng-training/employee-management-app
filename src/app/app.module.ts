@@ -31,7 +31,7 @@ import { EmployeeListComponent,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(routes),
-    CoreModule,
+    CoreModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
