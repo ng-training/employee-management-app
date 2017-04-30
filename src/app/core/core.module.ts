@@ -1,10 +1,16 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 
-import { EmployeeService,
-         LoggerService,
- } from './index';
+import {
+  EmployeeService,
+  LoggerService,
+} from './index';
 
-@NgModule({
-    providers: [EmployeeService, LoggerService]
-})
-export class CoreModule { }
+@NgModule()
+export class CoreModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: CoreModule,
+      providers: [ EmployeeService, LoggerService ]
+    };
+  };
+}
