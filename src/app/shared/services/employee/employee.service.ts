@@ -20,8 +20,6 @@ export class Employee {
 @Injectable()
 export class EmployeeService {
 
-  private _logger: LoggerService;
-
   private _employees: Employee[] = [
     {
       'id': 'ae7b7cce-57b2-4a79-ba23-4fbc170fae80',
@@ -155,9 +153,7 @@ export class EmployeeService {
     }
   ];
 
-  constructor(logger: LoggerService) {
-    this._logger = logger;
-  }
+  constructor(private _logger: LoggerService) { }
 
   getEmployees(): Employee[] {
     this._logger.log('Get employees');
