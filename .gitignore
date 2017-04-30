@@ -16,7 +16,7 @@
 .settings/
 
 # IDE - VSCode
-.vscode/*
+# .vscode/*
 
 # misc
 /.sass-cache
