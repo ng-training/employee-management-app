@@ -4,8 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-employee-list',
   templateUrl: './employee-list.component.html',
 })
-export class EmployeeListComponent {
-
+export class EmployeeListComponent implements OnInit {
   private _employees = [
     {
       'id': 'ae7b7cce-57b2-4a79-ba23-4fbc170fae80',
@@ -141,7 +140,7 @@ export class EmployeeListComponent {
 
   employees: Array<any>;
 
-  constructor() {
+  ngOnInit(): void {
     this.employees = this._employees;
   }
 
