@@ -1,6 +1,9 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { RouterTestingModule } from '@angular/router/testing';
+import { RouterModule } from '@angular/router';
+
 import { EmployeeListComponent } from './employee-list.component';
 import { SearchComponent,
          EmployeeViewComponent } from 'app/components';
@@ -21,7 +24,11 @@ describe('EmployeeListComponent', () => {
       providers: [
         EmployeeService,
         LoggerService,
-      ]
+      ],
+      imports: [
+        RouterTestingModule,
+        RouterModule,
+      ],
     })
     .compileComponents();
   }));

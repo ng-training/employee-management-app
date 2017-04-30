@@ -1,5 +1,5 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TestBed, async } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { AppComponent } from './app.component';
 
@@ -14,7 +14,7 @@ import { EmployeeService,
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
+    declarations: [
         AppComponent,
         EmployeeListComponent,
         EmployeeViewComponent,
@@ -24,7 +24,7 @@ describe('AppComponent', () => {
         EmployeeService,
         LoggerService,
         ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+      imports: [RouterTestingModule]
     }).compileComponents();
   }));
 
