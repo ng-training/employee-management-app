@@ -5,9 +5,10 @@ import { AppComponent } from './app.component';
 
 import { EmployeeListComponent,
          EmployeeViewComponent,
-         SearchComponent } from 'app/components';
+        } from 'app/components';
 
 import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -16,11 +17,11 @@ describe('AppComponent', () => {
         AppComponent,
         EmployeeListComponent,
         EmployeeViewComponent,
-        SearchComponent,
       ],
       imports: [
         RouterTestingModule,
         CoreModule.forRoot(),
+        SharedModule,
       ]
     }).compileComponents();
   }));

@@ -30,12 +30,8 @@ import { EmployeeListComponent,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(routes),
-<<<<<<< HEAD
-    CoreModule,
-    SharedModule,
-=======
     CoreModule.forRoot(),
->>>>>>> 4-module-core
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
