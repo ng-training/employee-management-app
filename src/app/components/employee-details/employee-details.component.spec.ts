@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 
 import { EmployeeDetailsComponent } from './employee-details.component';
 import { EmployeeService, LoggerService } from 'app/core';
+import { CoreModule } from 'app/core/core.module';
 
 describe('EmployeeDetailsComponent', () => {
   let component: EmployeeDetailsComponent;
@@ -16,6 +17,7 @@ describe('EmployeeDetailsComponent', () => {
       imports: [
         RouterTestingModule,
         RouterModule,
+        CoreModule.forRoot(),
       ],
       providers: [
         EmployeeService,
