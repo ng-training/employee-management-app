@@ -27,7 +27,7 @@ export class EmployeeDetailsReactiveComponent implements OnInit {
 
   hasDigit(digit: number, error: string) {
     return function (input: FormControl) {
-      return input.value.indexOf(digit) >= 0 ? null : { [ error ]: true };
+      return input.value && input.value.indexOf(digit) >= 0 ? null : { [ error ]: true };
     };
   }
 
@@ -39,6 +39,10 @@ export class EmployeeDetailsReactiveComponent implements OnInit {
   }
 
   private setupForm() {
+    if (!this.employee) {
+      this.employee = {};
+    }
+
     this.employeeName = new FormControl(this.employee.name, [ Validators.required, Validators.minLength(5) ]);
     this.employeePosition = new FormControl(this.employee.position, [ Validators.required, this.hasDigit(2, 'MustHave2') ]);
     this.employeeEmail = new FormControl(this.employee.email, [Validators.required]);
