@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 
 import {
   EmployeeService,
@@ -9,7 +9,13 @@ import {
 
 @NgModule({
     declarations: [ReversePipe, StringifyPipe],
-    providers: [EmployeeService, LoggerService],
     exports: [ReversePipe, StringifyPipe]
 })
-export class CoreModule { }
+export class CoreModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: CoreModule,
+      providers: [ EmployeeService, LoggerService ]
+    };
+  };
+}
