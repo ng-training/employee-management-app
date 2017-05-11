@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { EmployeeService } from '../../core/index';
 
@@ -17,12 +17,15 @@ export class EmployeeDetailsReactiveComponent implements OnInit {
   employeeDetailsForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
     private employeesService: EmployeeService,
+    private router: Router,
   ) { }
 
   onSubmit() {
-    console.log(this.employeeDetailsForm.value);
+    const employeeToSave = this.employeeDetailsForm.value;
+    this.employeesService.addEmployee(employeeToSave);
+
+    this.router.navigateByUrl('/employees');
   }
 
   hasDigit(digit: number, error: string) {
@@ -32,20 +35,13 @@ export class EmployeeDetailsReactiveComponent implements OnInit {
   }
 
   ngOnInit() {
-    const id = this.route.snapshot.params[ 'id' ];
-    this.employee = this.employeesService.getEmployeeById(id);
-
     this.setupForm();
   }
 
   private setupForm() {
-    if (!this.employee) {
-      this.employee = {};
-    }
-
-    this.employeeName = new FormControl(this.employee.name, [ Validators.required, Validators.minLength(5) ]);
-    this.employeePosition = new FormControl(this.employee.position, [ Validators.required, this.hasDigit(2, 'MustHave2') ]);
-    this.employeeEmail = new FormControl(this.employee.email, [Validators.required]);
+    this.employeeName = new FormControl('', [ Validators.required, Validators.minLength(5) ]);
+    this.employeePosition = new FormControl('', [ Validators.required, this.hasDigit(2, 'MustHave2') ]);
+    this.employeeEmail = new FormControl('', [Validators.required]);
 
     this.employeeDetailsForm = this.formBuilder.group({
       employeeName: this.employeeName,

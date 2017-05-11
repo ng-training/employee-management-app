@@ -163,4 +163,8 @@ export class EmployeeService {
     this._logger.log(`Get employee ${id}`);
     return this._employees.find(e => e.id === id);
   }
+
+  addEmployee(employee: Employee) {
+    this._employees.push(employee);
+  }
 }
