@@ -152,6 +152,9 @@ export class EmployeeService {
     }
   ];
 
+  // TODO: Use a proper default picture
+  defaultUserPicture = 'https://randomuser.me/api/portraits/thumb/men/15.jpg';
+
   constructor(private _logger: LoggerService) { }
 
   getEmployees(): Employee[] {
@@ -165,6 +168,18 @@ export class EmployeeService {
   }
 
   addEmployee(employee: Employee) {
+    employee.id = this.getNewId();
+    employee.picture = this.defaultUserPicture;
+    employee.address = <Address>{ };
+
     this._employees.push(employee);
+  }
+
+  private getNewId(): string {
+    const s4 = () => Math.floor((1 + Math.random()) * 0x10000)
+                        .toString(16)
+                        .substring(1);
+
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
   }
 }

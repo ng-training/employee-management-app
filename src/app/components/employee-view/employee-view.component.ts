@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-employee-view',
@@ -11,13 +11,6 @@ import { Component, OnInit, Input } from '@angular/core';
     <p class="list-group-item-text">({{ employee?.position }})</p>
   `
 })
-export class EmployeeViewComponent implements OnInit {
-
+export class EmployeeViewComponent {
   @Input() employee;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }

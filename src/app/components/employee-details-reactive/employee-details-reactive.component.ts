@@ -11,9 +11,9 @@ import { EmployeeService } from '../../core/index';
 export class EmployeeDetailsReactiveComponent implements OnInit {
   employee: any;
 
-  employeeName: FormControl;
-  employeePosition: FormControl;
-  employeeEmail: FormControl;
+  name: FormControl;
+  position: FormControl;
+  email: FormControl;
   employeeDetailsForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
@@ -39,14 +39,14 @@ export class EmployeeDetailsReactiveComponent implements OnInit {
   }
 
   private setupForm() {
-    this.employeeName = new FormControl('', [ Validators.required, Validators.minLength(5) ]);
-    this.employeePosition = new FormControl('', [ Validators.required, this.hasDigit(2, 'MustHave2') ]);
-    this.employeeEmail = new FormControl('', [Validators.required]);
+    this.name = new FormControl('', [ Validators.required, Validators.minLength(5) ]);
+    this.position = new FormControl('', [ Validators.required, this.hasDigit(2, 'MustHave2') ]);
+    this.email = new FormControl('', [Validators.required]);
 
     this.employeeDetailsForm = this.formBuilder.group({
-      employeeName: this.employeeName,
-      employeePosition: this.employeePosition,
-      employeeEmail: this.employeeEmail,
+      name: this.name,
+      position: this.position,
+      email: this.email,
     });
   }
 }
