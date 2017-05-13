@@ -19,9 +19,6 @@ export class Employee {
 
 @Injectable()
 export class EmployeeService {
-
-  private _logger: LoggerService;
-
   private _employees: Employee[] = [
     {
       'id': 'ae7b7cce-57b2-4a79-ba23-4fbc170fae80',
@@ -155,22 +152,36 @@ export class EmployeeService {
     }
   ];
 
-  constructor(logger: LoggerService) {
-    this._logger = logger;
-  }
+  // TODO: Use a proper default picture
+  defaultUserPicture = 'https://randomuser.me/api/portraits/thumb/men/15.jpg';
+
+  constructor(private _logger: LoggerService) { }
 
   getEmployees(): Employee[] {
     this._logger.log('Get employees');
-
     return this._employees;
-
   }
 
   getEmployeeById(id: string): Employee {
-
-    this._logger.log(`Get employee ${id}`);
-
+    this._logger.log(`Get employee ${ id }`);
     return this._employees.find(e => e.id === id);
   }
 
+  addEmployee(employee: Employee) {
+    employee.id = this.getNewId();
+    employee.picture = this.defaultUserPicture;
+    if (!employee.address) {
+      employee.address = <Address>{};
+    }
+
+    this._employees.push(employee);
+  }
+
+  private getNewId(): string {
+    const s4 = () => Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+  }
 }

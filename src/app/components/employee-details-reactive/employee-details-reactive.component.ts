@@ -1,60 +1,60 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
-import { EmployeeService } from '../../core/index';
+import { EmployeeService, Employee } from '../../core/index';
 
 @Component({
   selector: 'app-employee-details-reactive',
   templateUrl: './employee-details-reactive.component.html',
 })
 export class EmployeeDetailsReactiveComponent implements OnInit {
-  employee: any;
+  employee: Employee;
 
-  employeeName: FormControl;
-  employeePosition: FormControl;
-  employeeEmail: FormControl;
+  name: FormControl;
+  position: FormControl;
+  email: FormControl;
   employeeDetailsForm: FormGroup;
-  employeeAddress: FormGroup;
+  address: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
     private employeesService: EmployeeService,
+    private router: Router,
   ) { }
 
   onSubmit() {
-    console.log(this.employeeDetailsForm.value);
+    const employeeToSave = this.employeeDetailsForm.value;
+    this.employeesService.addEmployee(employeeToSave);
+
+    this.router.navigateByUrl('/employees');
   }
 
   hasDigit(digit: number, error: string) {
     return function (input: FormControl) {
-      return input.value.indexOf(digit) >= 0 ? null : { [ error ]: true };
+      return input.value && input.value.indexOf(digit) >= 0 ? null : { [ error ]: true };
     };
   }
 
   ngOnInit() {
-    const id = this.route.snapshot.params['id'];
-    this.employee = this.employeesService.getEmployeeById(id);
-
     this.setupForm();
   }
 
   private setupForm() {
-    this.employeeName = new FormControl(this.employee.name, [ Validators.required, Validators.minLength(5) ]);
-    this.employeePosition = new FormControl(this.employee.position, [ Validators.required, this.hasDigit(2, 'MustHave2') ]);
-    this.employeeEmail = new FormControl(this.employee.email, [Validators.required]);
+    this.name = new FormControl('', [ Validators.required, Validators.minLength(5) ]);
+    this.position = new FormControl('', [ Validators.required, this.hasDigit(2, 'MustHave2') ]);
+    this.email = new FormControl('', [Validators.required]);
 
-    this.employeeAddress = this.formBuilder.group({
-      city: [this.employee.address.city],
-      number: [this.employee.address.number],
-      street: [this.employee.address.street],
+    this.address = this.formBuilder.group({
+      city: [''],
+      number: [''],
+      street: [''],
     });
 
     this.employeeDetailsForm = this.formBuilder.group({
-      employeeName: this.employeeName,
-      employeePosition: this.employeePosition,
-      employeeEmail: this.employeeEmail,
-      employeeAddress: this.employeeAddress,
+      name: this.name,
+      position: this.position,
+      email: this.email,
+      address: this.address,
     });
   }
 }

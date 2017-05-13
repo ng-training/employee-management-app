@@ -1,5 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { RouterModule } from '@angular/router';
 
+import { EmployeeService, LoggerService } from 'app/core';
 import { EmployeeDetailsReactiveComponent } from './employee-details-reactive.component';
 
 describe('EmployeeDetailsReactiveComponent', () => {
@@ -8,7 +12,16 @@ describe('EmployeeDetailsReactiveComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EmployeeDetailsReactiveComponent ]
+      declarations: [ EmployeeDetailsReactiveComponent ],
+      imports: [
+          ReactiveFormsModule,
+          RouterTestingModule,
+          RouterModule,
+        ],
+      providers: [
+        EmployeeService,
+        LoggerService,
+        ],
     })
     .compileComponents();
   }));
