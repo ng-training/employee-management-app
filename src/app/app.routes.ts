@@ -12,8 +12,11 @@ const routes: Routes = [
     component: EmployeeListComponent
   },
   {
+    path: 'employees/new',
+    component: EmployeeDetailsReactiveComponent
+  },
+  {
     path: 'employees/:id',
-    // component: EmployeeDetailsReactiveComponent
     component: EmployeeDetailsComponent
   },
   {
