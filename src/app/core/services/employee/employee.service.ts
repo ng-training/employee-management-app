@@ -183,13 +183,13 @@ export class EmployeeService {
   }
 
   addEmployee(employee: Employee) {
-    employee.id = this.getNewId();
     employee.picture = this.defaultUserPicture;
     if (!employee.address) {
       employee.address = <Address>{};
     }
 
-    this._employees.push(employee);
+    return this._http.post(this._apiUrl, employee)
+      .catch(this.handleError);
   }
 
   extractData(response: Response): Employee[] {
@@ -198,13 +198,5 @@ export class EmployeeService {
 
   handleError(error: Response | any) {
     return Observable.throw(error);
-  }
-
-  private getNewId(): string {
-    const s4 = () => Math.floor((1 + Math.random()) * 0x10000)
-      .toString(16)
-      .substring(1);
-
-    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
   }
 }

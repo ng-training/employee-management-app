@@ -24,9 +24,8 @@ export class NewEmployeeComponent implements OnInit {
 
   onSubmit() {
     const employeeToSave = this.employeeDetailsForm.value;
-    this.employeesService.addEmployee(employeeToSave);
-
-    this.router.navigateByUrl('/employees');
+    this.employeesService.addEmployee(employeeToSave)
+      .subscribe(_ => this.router.navigateByUrl('/employees'));
   }
 
   hasDigit(digit: number, error: string) {
