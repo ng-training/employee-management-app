@@ -1,14 +1,22 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
 import { EmployeeListComponent } from './employee-list.component';
 import { EmployeeService, employees } from '../../core/services/employee/employee.service';
 import { LoggerService } from '../../core/services/logger/logger.service';
-import { Observable } from "rxjs";
-import { EmployeeViewComponent } from "../employee-view/employee-view.component";
+import { Observable } from 'rxjs/Observable';
+
+import { RouterTestingModule } from '@angular/router/testing';
+import { RouterModule, Router } from '@angular/router';
+
+import { EmployeeViewComponent } from 'app/components';
+import { SharedModule } from 'app/shared/shared.module';
+
+import 'rxjs/add/observable/from';
+import { APP_BASE_HREF } from '@angular/common';
 
 describe('EmployeeListComponent', () => {
   let component: EmployeeListComponent;
@@ -17,12 +25,24 @@ describe('EmployeeListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EmployeeListComponent, EmployeeViewComponent ],
       schemas: [NO_ERRORS_SCHEMA],
-      providers: [EmployeeService, LoggerService],
-      imports: [HttpModule],
+      declarations: [
+        EmployeeListComponent,
+        EmployeeViewComponent,
+      ],
+      providers: [
+        EmployeeService,
+        LoggerService,
+        {provide: APP_BASE_HREF, useValue : '/' },
+      ],
+      imports: [
+        RouterTestingModule,
+           RouterModule.forRoot([{path: '', component: EmployeeListComponent}]),
+        SharedModule,
+        HttpModule,
+      ],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -71,8 +91,9 @@ describe('EmployeeListComponent with stub', () => {
       schemas: [NO_ERRORS_SCHEMA],
       providers: [{
         provide: EmployeeService,
-        useValue: employeeServiceStub
-      }]
+        useValue: employeeServiceStub,
+      },
+       { provide: Router, useValue: {} }]
     })
     .compileComponents();
   }));
@@ -90,10 +111,10 @@ describe('EmployeeListComponent with stub', () => {
     async(() => {
       fixture.detectChanges();
       fixture.whenStable().then(() => {
-        let firstItem = fixture.debugElement.query(By.css(".employee-list .list-group-item:first-child h4"));
+        const firstItem = fixture.debugElement.query(By.css('.employee-list .list-group-item:first-child h4'));
         expect(component.employees instanceof Array).toBeTruthy();
         expect(component.employees.length).toBe(10);
-        expect(firstItem.nativeElement.textContent).toBe("Loraine Bradford");
+        expect(firstItem.nativeElement.textContent).toBe('Loraine Bradford');
       });
     })
   );

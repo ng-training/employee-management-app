@@ -1,7 +1,10 @@
-import { EmployeeService } from './employee.service';
+import { TestBed } from '@angular/core/testing';
+import { HttpModule } from '@angular/http';
 
 import { of } from 'rxjs/observable/of';
-import { from } from 'rxjs/observable/from';
+
+import { EmployeeService } from './employee.service';
+import { LoggerService } from 'app/core';
 
 describe('EmployeeService', () => {
   let empService: EmployeeService;
@@ -49,6 +52,13 @@ describe('EmployeeService', () => {
 
   it('should create an instance', () => {
     expect(empService).toBeTruthy();
+    TestBed.configureTestingModule({
+      imports: [ HttpModule ],
+      providers: [
+        EmployeeService,
+        LoggerService,
+      ]
+    });
   });
 
   it('can get employees', () => {
