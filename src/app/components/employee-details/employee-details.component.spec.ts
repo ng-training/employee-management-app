@@ -3,10 +3,11 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { CoreModule } from 'app/core/core.module';
+import { HttpModule } from '@angular/http';
 
 import { EmployeeDetailsComponent } from './employee-details.component';
 import { EmployeeService, LoggerService } from 'app/core';
-import { CoreModule } from 'app/core/core.module';
 
 describe('EmployeeDetailsComponent', () => {
   let component: EmployeeDetailsComponent;
@@ -20,6 +21,7 @@ describe('EmployeeDetailsComponent', () => {
         RouterModule,
         FormsModule,
         CoreModule.forRoot(),
+        HttpModule,
       ],
       providers: [
         EmployeeService,

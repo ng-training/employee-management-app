@@ -2,11 +2,12 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { RouterModule } from '@angular/router';
+import { HttpModule } from '@angular/http';
 
 import { EmployeeService, LoggerService } from 'app/core';
 import { NewEmployeeComponent } from './new-employee.component';
 
-describe('EmployeeDetailsReactiveComponent', () => {
+describe('NewEmployeeComponent', () => {
   let component: NewEmployeeComponent;
   let fixture: ComponentFixture<NewEmployeeComponent>;
 
@@ -17,6 +18,7 @@ describe('EmployeeDetailsReactiveComponent', () => {
           ReactiveFormsModule,
           RouterTestingModule,
           RouterModule,
+          HttpModule,
         ],
       providers: [
         EmployeeService,
