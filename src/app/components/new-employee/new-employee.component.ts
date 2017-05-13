@@ -5,10 +5,10 @@ import { Router } from '@angular/router';
 import { EmployeeService } from '../../core/index';
 
 @Component({
-  selector: 'app-employee-details-reactive',
-  templateUrl: './employee-details-reactive.component.html',
+  selector: 'app-new-employee',
+  templateUrl: './new-employee.component.html',
 })
-export class EmployeeDetailsReactiveComponent implements OnInit {
+export class NewEmployeeComponent implements OnInit {
   employee: any;
 
   name: FormControl;

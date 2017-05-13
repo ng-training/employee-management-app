@@ -4,15 +4,15 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { RouterModule } from '@angular/router';
 
 import { EmployeeService, LoggerService } from 'app/core';
-import { EmployeeDetailsReactiveComponent } from './employee-details-reactive.component';
+import { NewEmployeeComponent } from './new-employee.component';
 
 describe('EmployeeDetailsReactiveComponent', () => {
-  let component: EmployeeDetailsReactiveComponent;
-  let fixture: ComponentFixture<EmployeeDetailsReactiveComponent>;
+  let component: NewEmployeeComponent;
+  let fixture: ComponentFixture<NewEmployeeComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EmployeeDetailsReactiveComponent ],
+      declarations: [ NewEmployeeComponent ],
       imports: [
           ReactiveFormsModule,
           RouterTestingModule,
@@ -27,7 +27,7 @@ describe('EmployeeDetailsReactiveComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EmployeeDetailsReactiveComponent);
+    fixture = TestBed.createComponent(NewEmployeeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
