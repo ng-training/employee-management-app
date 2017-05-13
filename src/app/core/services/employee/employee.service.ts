@@ -29,7 +29,7 @@ export class EmployeeService {
   private _logger: LoggerService;
   private _http: Http;
   private _apiUrl = 'http://localhost:3000/api/employees';
-  private defaultUserPicture = 'https://randomuser.me/api/portraits/lego/5.jpg';
+  private defaultUserPicture = 'https://randomuser.me/api/portraits/thumb/lego/5.jpg';
 
   private _employees: Employee[] = [
     {
