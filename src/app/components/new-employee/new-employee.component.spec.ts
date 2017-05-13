@@ -4,7 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { RouterModule } from '@angular/router';
 
 import { EmployeeService, LoggerService } from 'app/core';
-import { NewEmployeeComponent } from './employee-details-reactive.component';
+import { NewEmployeeComponent } from './new-employee.component';
 
 describe('EmployeeDetailsReactiveComponent', () => {
   let component: NewEmployeeComponent;
