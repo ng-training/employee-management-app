@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { EmployeeService } from '../../core/index';
 
 import { Subject } from 'rxjs/Subject';
@@ -22,10 +24,11 @@ export class EmployeeListComponent implements OnInit {
   searchStream$ = new Subject<string>();
   filterStream$ = new Subject<boolean>();
 
-  constructor(private employeeService: EmployeeService) { }
+  constructor(private employeesService: EmployeeService,
+              private router: Router) { }
 
   ngOnInit(): void {
-    this.employeeService.getEmployees().subscribe((employees: Employee[]) => {
+    this.employeesService.getEmployees().subscribe((employees: Employee[]) => {
       this._employees = this.employees = employees;
       this.employees = this._employees;
     });
@@ -45,6 +48,10 @@ export class EmployeeListComponent implements OnInit {
     }
 
     this.employees = this._employees.filter(empFilterFunction, { text, onlyDevs });
+  }
+
+  goToNewEmployee() {
+    this.router.navigateByUrl('employees/new');
   }
 }
 

@@ -3,13 +3,26 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { AppComponent } from './app.component';
 
+import { EmployeeListComponent,
+         EmployeeViewComponent,
+        } from 'app/components';
+
+import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
+    declarations: [
+        AppComponent,
+        EmployeeListComponent,
+        EmployeeViewComponent,
       ],
-      imports: [RouterTestingModule]
+      imports: [
+        RouterTestingModule,
+        CoreModule.forRoot(),
+        SharedModule,
+      ]
     }).compileComponents();
   }));
 
@@ -25,7 +38,7 @@ describe('AppComponent', () => {
     expect(app.foo).toEqual('bar');
   }));
 
-  it('should alt Visma on logo image', async(() => {
+  it('should render visma logo', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
