@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { EmployeeService } from '../../core/index';
 
 import { Subject } from 'rxjs/Subject';
@@ -21,10 +23,11 @@ export class EmployeeListComponent implements OnInit {
   searchStream$ = new Subject<string>();
   filterStream$ = new Subject<boolean>();
 
-  constructor(private employeeService: EmployeeService) { }
+  constructor(private employeesService: EmployeeService,
+              private router: Router) { }
 
   ngOnInit(): void {
-    this._employees = this.employeeService.getEmployees();
+    this._employees = this.employeesService.getEmployees();
     this.employees = this._employees;
 
     const filteredSearchStream$ = this.searchStream$.debounceTime(200)
@@ -38,6 +41,10 @@ export class EmployeeListComponent implements OnInit {
 
   filterEmployees(text: string = '', onlyDevs: boolean) {
     this.employees = this._employees.filter(empFilterFunction, { text, onlyDevs });
+  }
+
+  goToNewEmployee() {
+    this.router.navigateByUrl('employees/new');
   }
 }
 
