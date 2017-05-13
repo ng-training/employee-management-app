@@ -14,7 +14,7 @@ import { SharedModule } from './shared/shared.module';
 import { EmployeeListComponent,
          PageNotFoundComponent,
          EmployeeDetailsComponent,
-         EmployeeDetailsReactiveComponent,
+         NewEmployeeComponent,
          EmployeeViewComponent,
         } from './components/index';
 
@@ -24,7 +24,7 @@ import { EmployeeListComponent,
     EmployeeListComponent,
     PageNotFoundComponent,
     EmployeeDetailsComponent,
-    EmployeeDetailsReactiveComponent,
+    NewEmployeeComponent,
     EmployeeViewComponent,
   ],
   imports: [
