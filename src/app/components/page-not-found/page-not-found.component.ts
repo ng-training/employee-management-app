@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-page-not-found',
@@ -11,7 +11,7 @@ import { Component, OnInit, Input } from '@angular/core';
   </h2>
 `
 })
-export class PageNotFoundComponent implements OnInit {
+export class PageNotFoundComponent {
 
   @Input() customMessage: string;
 
@@ -20,8 +20,4 @@ export class PageNotFoundComponent implements OnInit {
   setDefaultMessage() {
     this.customMessage = 'foo';
   }
-
-  ngOnInit() {
-  }
-
 }

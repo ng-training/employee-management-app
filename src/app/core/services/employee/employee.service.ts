@@ -25,10 +25,8 @@ export class Employee {
 
 @Injectable()
 export class EmployeeService {
-
-  private _logger: LoggerService;
-  private _http: Http;
   private _apiUrl = 'http://localhost:3000/api/employees';
+
   private _headers = new Headers({
     'Content-Type': 'application/json'
   });
@@ -36,10 +34,9 @@ export class EmployeeService {
     headers: this._headers
   });
 
-  constructor(logger: LoggerService, http: Http) {
-    this._logger = logger;
-    this._http = http;
-  }
+  private defaultUserPicture = 'https://randomuser.me/api/portraits/thumb/lego/5.jpg';
+
+  constructor(private _logger: LoggerService, private _http: Http) { }
 
   getEmployees(): Observable<Employee[]> {
     this._logger.log('Get employees');
@@ -50,7 +47,6 @@ export class EmployeeService {
   }
 
   getEmployeeById(id: string): Observable<Employee> {
-
     this._logger.log(`Get employee ${id}`);
 
     return this._http.get(`${this._apiUrl}/${encodeURIComponent(id)}`)
@@ -58,8 +54,17 @@ export class EmployeeService {
       .catch(this.handleError);
   }
 
-  updateEmployee(employee: Employee): Observable<Employee> {
+  addEmployee(employee: Employee) {
+    employee.picture = this.defaultUserPicture;
+    if (!employee.address) {
+      employee.address = <Address>{};
+    }
 
+    return this._http.post(this._apiUrl, employee)
+      .catch(this.handleError);
+    }
+
+  updateEmployee(employee: Employee): Observable<Employee> {
     this._logger.log(`Get employee ${employee.id}`);
 
     return this._http.put(`${this._apiUrl}/${encodeURIComponent(employee.id)}`, employee, this._requestOptions)
@@ -72,7 +77,6 @@ export class EmployeeService {
   }
 
   handleError(error: Response | any) {
-
     return Observable.throw(error);
   }
 }
