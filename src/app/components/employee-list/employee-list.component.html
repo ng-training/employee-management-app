@@ -4,18 +4,26 @@
 </app-search>
 
 <form>
-  <div class="form-group">
-    <div class="checkbox">
-      <label>
-        <input type="checkbox" id="empFilter" #filterCheck (click)="filterStream$.next(filterCheck.checked)">
-        Show only developers
-      </label>
+    <div class="form-group">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"
+                       id="empFilter"
+                       #filterCheck
+                       (click)="filterStream$.next(filterCheck.checked)"> Show only developers
+            </label>
+        </div>
     </div>
-  </div>
 </form>
 
 <div class="list-group employee-list">
-  <a href="#" [routerLink]="['/employees', employee.id]" class="list-group-item" *ngFor="let employee of employees">
-    <app-employee-view [employee]="employee"></app-employee-view>
-  </a>
+    <a href="#"
+       [routerLink]="['/employees', employee.id]"
+       class="list-group-item"
+       *ngFor="let employee of employees">
+        <app-employee-view [employee]="employee"></app-employee-view>
+    </a>
 </div>
+
+<button class="btn btn-success"
+        (click)="goToNewEmployee()">New</button>

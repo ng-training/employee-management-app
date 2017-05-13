@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 import { EmployeeListComponent,
          PageNotFoundComponent,
          EmployeeDetailsComponent,
-         EmployeeDetailsReactiveComponent,
+         NewEmployeeComponent,
         } from './components/index';
 
 const routes: Routes = [
@@ -12,8 +12,11 @@ const routes: Routes = [
     component: EmployeeListComponent
   },
   {
+    path: 'employees/new',
+    component: NewEmployeeComponent
+  },
+  {
     path: 'employees/:id',
-    // component: EmployeeDetailsReactiveComponent
     component: EmployeeDetailsComponent
   },
   {
