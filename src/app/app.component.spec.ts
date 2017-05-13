@@ -1,13 +1,28 @@
 import { TestBed, async } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { AppComponent } from './app.component';
+
+import { EmployeeListComponent,
+         EmployeeViewComponent,
+        } from 'app/components';
+
+import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
+    declarations: [
+        AppComponent,
+        EmployeeListComponent,
+        EmployeeViewComponent,
       ],
+      imports: [
+        RouterTestingModule,
+        CoreModule.forRoot(),
+        SharedModule,
+      ]
     }).compileComponents();
   }));
 
@@ -17,16 +32,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   }));
 
-  it(`should have as title 'app works!'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app works!');
-  }));
-
-  it('should render title in a h1 tag', async(() => {
+  it('should render visma logo', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('app works!');
+    expect(compiled.querySelector('img').alt).toContain('Visma');
   }));
 });

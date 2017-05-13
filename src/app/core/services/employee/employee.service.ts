@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 
 export class Address {
   street: string;
@@ -28,6 +29,7 @@ export class EmployeeService {
   private _logger: LoggerService;
   private _http: Http;
   private _apiUrl = 'http://localhost:3000/api/employees';
+  private defaultUserPicture = 'https://randomuser.me/api/portraits/lego/5.jpg';
 
   private _employees: Employee[] = [
     {
@@ -176,10 +178,18 @@ export class EmployeeService {
   }
 
   getEmployeeById(id: string): Employee {
-
-    this._logger.log(`Get employee ${id}`);
-
+    this._logger.log(`Get employee ${ id }`);
     return this._employees.find(e => e.id === id);
+  }
+
+  addEmployee(employee: Employee) {
+    employee.id = this.getNewId();
+    employee.picture = this.defaultUserPicture;
+    if (!employee.address) {
+      employee.address = <Address>{};
+    }
+
+    this._employees.push(employee);
   }
 
   extractData(response: Response): Employee[] {
@@ -187,7 +197,14 @@ export class EmployeeService {
   }
 
   handleError(error: Response | any) {
-
     return Observable.throw(error);
+  }
+
+  private getNewId(): string {
+    const s4 = () => Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
   }
 }
