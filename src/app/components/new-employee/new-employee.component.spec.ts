@@ -13,17 +13,17 @@ describe('NewEmployeeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NewEmployeeComponent ],
+      declarations: [NewEmployeeComponent],
       imports: [
-          ReactiveFormsModule,
-          RouterTestingModule,
-          RouterModule,
-          HttpModule,
-        ],
+        ReactiveFormsModule,
+        RouterTestingModule,
+        RouterModule,
+        HttpModule,
+      ],
       providers: [
         EmployeeService,
         LoggerService,
-        ],
+      ],
     })
     .compileComponents();
   }));
@@ -36,5 +36,16 @@ describe('NewEmployeeComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should create an invalid form', () => {
+    expect(component.employeeDetailsForm.invalid).toBe(true);
+  });
+
+  it('should validate form', () => {
+    component.name.setValue("Lucian");
+    component.position.setValue("dev2");
+    component.email.setValue("luci@visma.com");
+    expect(component.employeeDetailsForm.valid).toBe(true);
   });
 });
