@@ -50,7 +50,7 @@ describe('EmployeeListComponent', () => {
     fixture = TestBed.createComponent(EmployeeListComponent);
     component = fixture.componentInstance;
     employeeService = fixture.debugElement.injector.get(EmployeeService);
-    spyOn(employeeService, 'getEmployees').and.returnValue(Observable.from([employees]));
+    spyOn(employeeService, 'getEmployees').and.returnValue(Observable.from([employees]).debounceTime(100));
   });
 
   it('should create the component', () => {
