@@ -152,7 +152,7 @@ export class EmployeeService {
     }
   ];
 
-  defaultUserPicture = 'https://randomuser.me/api/portraits/thumb/lego/5.jpg';
+  private defaultUserPicture = 'https://randomuser.me/api/portraits/thumb/lego/5.jpg';
 
   constructor(private _logger: LoggerService) { }
 
