@@ -2,6 +2,7 @@
 import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+
 import { HttpModule } from '@angular/http';
 
 import { EmployeeListComponent } from './employee-list.component';
@@ -10,9 +11,10 @@ import { LoggerService } from '../../core/services/logger/logger.service';
 import { Observable } from 'rxjs/Observable';
 
 import { RouterTestingModule } from '@angular/router/testing';
-import { RouterModule, Router } from '@angular/router';
+import { EmployeeViewComponent } from '../employee-view/employee-view.component';
 
-import { EmployeeViewComponent } from 'app/components';
+import { Router, RouterModule } from '@angular/router';
+
 import { SharedModule } from 'app/shared/shared.module';
 
 import 'rxjs/add/observable/from';
@@ -36,8 +38,8 @@ describe('EmployeeListComponent', () => {
         {provide: APP_BASE_HREF, useValue : '/' },
       ],
       imports: [
+        RouterModule.forRoot([{path: '', component: EmployeeListComponent}]),
         RouterTestingModule,
-           RouterModule.forRoot([{path: '', component: EmployeeListComponent}]),
         SharedModule,
         HttpModule,
       ],
@@ -91,9 +93,9 @@ describe('EmployeeListComponent with stub', () => {
       schemas: [NO_ERRORS_SCHEMA],
       providers: [{
         provide: EmployeeService,
-        useValue: employeeServiceStub,
+        useValue: employeeServiceStub
       },
-       { provide: Router, useValue: {} }]
+      { provide: Router, useValue: {} }]
     })
     .compileComponents();
   }));
