@@ -43,9 +43,9 @@ describe('NewEmployeeComponent', () => {
   });
 
   it('should validate form', () => {
-    component.name.setValue("Lucian");
-    component.position.setValue("dev2");
-    component.email.setValue("luci@visma.com");
+    component.name.setValue('Lucian');
+    component.position.setValue('dev2');
+    component.email.setValue('luci@visma.com');
     expect(component.employeeDetailsForm.valid).toBe(true);
   });
 });
