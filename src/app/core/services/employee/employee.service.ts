@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { LoggerService } from '../logger/logger.service';
-import { Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map';
@@ -27,7 +27,7 @@ export class Employee {
 export class EmployeeService {
 
   private _logger: LoggerService;
-  private _http: Http;
+  private _http: HttpClient;
   private _apiUrl = 'http://localhost:3000/api/employees';
   private defaultUserPicture = 'https://randomuser.me/api/portraits/thumb/lego/5.jpg';
 
@@ -164,7 +164,7 @@ export class EmployeeService {
     }
   ];
 
-  constructor(logger: LoggerService, http: Http) {
+  constructor(logger: LoggerService, http: HttpClient) {
     this._logger = logger;
     this._http = http;
   }
@@ -172,8 +172,7 @@ export class EmployeeService {
   getEmployees(): Observable<Employee[]> {
     this._logger.log('Get employees');
 
-    return this._http.get(this._apiUrl)
-      .map(this.extractData)
+    return this._http.get<Employee[]>(this._apiUrl)
       .catch(this.handleError);
   }
 
@@ -190,10 +189,6 @@ export class EmployeeService {
 
     return this._http.post(this._apiUrl, employee)
       .catch(this.handleError);
-  }
-
-  extractData(response: Response): Employee[] {
-    return response.json();
   }
 
   handleError(error: Response | any) {
