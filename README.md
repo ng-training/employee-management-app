@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
 ## Build status
-[![Build Status](https://travis-ci.org/ng-training/employee-management-app.svg?branch=1.1-components-search)](https://travis-ci.org/ng-training/employee-management-app)
+[![Build Status](https://travis-ci.org/ng-training/employee-management-app.svg?branch=2-services)](https://travis-ci.org/ng-training/employee-management-app)
 
 ## Development server
 
