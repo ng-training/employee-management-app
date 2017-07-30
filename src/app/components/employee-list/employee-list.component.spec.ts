@@ -6,7 +6,8 @@ import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
 import { EmployeeListComponent } from './employee-list.component';
-import { EmployeeViewComponent } from 'app/components';
+import { EmployeeViewComponent } from '../../components/employee-view/employee-view.component';
+
 import {
   EmployeeService,
   LoggerService,
