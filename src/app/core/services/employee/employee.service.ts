@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { LoggerService } from '../logger/logger.service';
-import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map';
@@ -25,32 +25,28 @@ export class Employee {
 
 @Injectable()
 export class EmployeeService {
+
+  private _logger: LoggerService;
+  private _http: HttpClient;
   private _apiUrl = 'http://localhost:3000/api/employees';
-
-  private _headers = new Headers({
-    'Content-Type': 'application/json'
-  });
-  private _requestOptions = new RequestOptions({
-    headers: this._headers
-  });
-
   private defaultUserPicture = 'https://randomuser.me/api/portraits/thumb/lego/5.jpg';
 
-  constructor(private _logger: LoggerService, private _http: Http) { }
+  constructor(logger: LoggerService, http: HttpClient) {
+    this._logger = logger;
+    this._http = http;
+  }
 
   getEmployees(): Observable<Employee[]> {
     this._logger.log('Get employees');
 
-    return this._http.get(this._apiUrl)
-      .map(this.extractData)
+    return this._http.get<Employee[]>(this._apiUrl)
       .catch(this.handleError);
   }
 
   getEmployeeById(id: string): Observable<Employee> {
     this._logger.log(`Get employee ${id}`);
 
-    return this._http.get(`${this._apiUrl}/${encodeURIComponent(id)}`)
-      .map(this.extractData)
+    return this._http.get<Employee>(`${this._apiUrl}/${encodeURIComponent(id)}`)
       .catch(this.handleError);
   }
 
@@ -67,13 +63,8 @@ export class EmployeeService {
   updateEmployee(employee: Employee): Observable<Employee> {
     this._logger.log(`Get employee ${employee.id}`);
 
-    return this._http.put(`${this._apiUrl}/${encodeURIComponent(employee.id)}`, employee, this._requestOptions)
-      .map(this.extractData)
+    return this._http.put<Employee>(`${this._apiUrl}/${encodeURIComponent(employee.id)}`, employee)
       .catch(this.handleError);
-  }
-
-  extractData(response: Response): Employee[] {
-    return response.json();
   }
 
   handleError(error: Response | any) {
