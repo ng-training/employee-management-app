@@ -1,10 +1,9 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { HttpModule } from '@angular/http';
-
 import { RouterTestingModule } from '@angular/router/testing';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/from';
@@ -38,7 +37,7 @@ describe('EmployeeListComponent', () => {
         RouterTestingModule,
         RouterModule,
         SharedModule,
-        HttpModule,
+        HttpClientModule,
       ],
     })
       .compileComponents();
