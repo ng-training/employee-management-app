@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { LoggerService } from '../logger/logger.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map';
@@ -67,7 +67,7 @@ export class EmployeeService {
       .catch(this.handleError);
   }
 
-  handleError(error: Response | any) {
+  handleError(error: HttpErrorResponse) {
     return Observable.throw(error);
   }
 }
