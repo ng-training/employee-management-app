@@ -2,10 +2,9 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HttpModule } from '@angular/http';
-
 import { RouterModule } from '@angular/router';
 import { CoreModule } from 'app/core/core.module';
+import { HttpClientModule } from '@angular/common/http';
 
 import { EmployeeDetailsComponent } from './employee-details.component';
 import { EmployeeService, LoggerService } from 'app/core';
@@ -22,7 +21,7 @@ describe('EmployeeDetailsComponent', () => {
         RouterModule,
         FormsModule,
         CoreModule.forRoot(),
-        HttpModule,
+        HttpClientModule,
       ],
       providers: [
         EmployeeService,
