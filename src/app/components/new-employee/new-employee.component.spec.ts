@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { RouterModule } from '@angular/router';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { EmployeeService, LoggerService } from 'app/core';
 import { NewEmployeeComponent } from './new-employee.component';
@@ -15,11 +15,11 @@ describe('NewEmployeeComponent', () => {
     TestBed.configureTestingModule({
       declarations: [NewEmployeeComponent],
       imports: [
-        ReactiveFormsModule,
-        RouterTestingModule,
-        RouterModule,
-        HttpModule,
-      ],
+          ReactiveFormsModule,
+          RouterTestingModule,
+          RouterModule,
+          HttpClientModule,
+        ],
       providers: [
         EmployeeService,
         LoggerService,
