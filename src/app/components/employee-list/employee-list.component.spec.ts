@@ -2,9 +2,7 @@
 import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-
-import { HttpModule } from '@angular/http';
-
+import { HttpClientModule } from '@angular/common/http';
 import { EmployeeListComponent } from './employee-list.component';
 import { EmployeeService, employees } from '../../core/services/employee/employee.service';
 import { LoggerService } from '../../core/services/logger/logger.service';
@@ -40,7 +38,7 @@ describe('EmployeeListComponent', () => {
         RouterModule.forRoot([{path: '', component: EmployeeListComponent}]),
         RouterTestingModule,
         SharedModule,
-        HttpModule,
+        HttpClientModule,
       ],
     })
       .compileComponents();
