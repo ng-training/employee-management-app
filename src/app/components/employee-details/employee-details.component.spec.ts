@@ -4,7 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CoreModule } from 'app/core/core.module';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { EmployeeDetailsComponent } from './employee-details.component';
 import { EmployeeService, LoggerService } from 'app/core';
@@ -21,7 +21,7 @@ describe('EmployeeDetailsComponent', () => {
         RouterModule,
         FormsModule,
         CoreModule.forRoot(),
-        HttpModule,
+        HttpClientModule,
       ],
       providers: [
         EmployeeService,
