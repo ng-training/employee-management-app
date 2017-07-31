@@ -38,8 +38,8 @@ describe('EmployeeService', () => {
       'position': 'Software Architect'
     }];
 
-  const response = { json: () => employees };
-  const singleResponse = { json: () => employees[0] };
+  // const response = { json: () => employees };
+  // const singleResponse = { json: () => employees[0] };
 
   beforeEach(() => {
     logger = jasmine.createSpyObj('logger', [ 'log' ]);
@@ -62,7 +62,7 @@ describe('EmployeeService', () => {
   });
 
   it('can get employees', () => {
-    http.get.and.returnValue(of(response));
+    http.get.and.returnValue(of(employees));
 
     empService.getEmployees()
       .subscribe(res => {
@@ -71,14 +71,14 @@ describe('EmployeeService', () => {
   });
 
   it('can get employee by id', () => {
-    http.get.and.returnValue(of(singleResponse));
+    http.get.and.returnValue(of(employees[0]));
 
     empService.getEmployeeById('foo')
       .subscribe(res => expect(res.id).toBe(employees[0].id));
   });
 
   it('can update an employee', () => {
-    http.put.and.returnValue(of(singleResponse));
+    http.put.and.returnValue(of(employees[0]));
 
     empService.updateEmployee(employees[1]);
 
