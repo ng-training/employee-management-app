@@ -11,7 +11,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "test:ci": "ng test --single-run --browsers PhantomJS",
+    "test:ci": "ng test --watch=false --browsers PhantomJS",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
