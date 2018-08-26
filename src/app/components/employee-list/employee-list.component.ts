@@ -4,12 +4,7 @@ import { Router } from '@angular/router';
 import { EmployeeService } from '../../core/index';
 
 import { Subject, combineLatest } from 'rxjs';
-import {
-  debounceTime,
-  distinctUntilChanged,
-  filter,
-  startWith
-} from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, startWith } from 'rxjs/operators';
 
 import { Employee } from '../../core/services/employee/employee.service';
 
