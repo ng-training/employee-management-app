@@ -49,7 +49,7 @@
     "protractor": "~5.1.2",
     "ts-node": "~3.3.0",
     "tslint": "~5.5.0",
-    "wallaby-webpack": "^0.0.38",
+    "wallaby-webpack": "^3.9.10",
     "typescript": "2.9.2"
   }
 }
