@@ -1,7 +1,6 @@
 import { LoggerService } from './logger.service';
 
 describe('LoggerService', () => {
-
   let logger: LoggerService;
 
   beforeEach(() => {
@@ -39,11 +38,12 @@ describe('LoggerService', () => {
   });
 
   it('can call warning fake', () => {
-    spyOn(logger, 'warn').and.callFake(() => console.log('this is not happening'));
+    spyOn(logger, 'warn').and.callFake(() =>
+      console.log('this is not happening')
+    );
 
     logger.warn('foo');
 
     expect(logger.warn).toHaveBeenCalledTimes(1);
   });
-
 });

@@ -28,5 +28,4 @@ describe('PageNotFoundComponent', () => {
 
     expect(component.customMessage).toBe('foo');
   });
-
 });

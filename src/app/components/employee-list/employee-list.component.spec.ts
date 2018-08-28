@@ -5,17 +5,13 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/from';
+import { from } from 'rxjs';
 
 import { EmployeeListComponent } from './employee-list.component';
 import { EmployeeViewComponent } from '../../components/employee-view/employee-view.component';
 
-import {
-  EmployeeService,
-  LoggerService,
-} from 'app/core';
-import { SharedModule } from 'app/shared/shared.module';
+import { EmployeeService, LoggerService } from '../../core';
+import { SharedModule } from '../../shared/shared.module';
 
 describe('EmployeeListComponent', () => {
   let component: EmployeeListComponent;
@@ -25,22 +21,15 @@ describe('EmployeeListComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       schemas: [NO_ERRORS_SCHEMA],
-      declarations: [
-        EmployeeListComponent,
-        EmployeeViewComponent,
-      ],
-      providers: [
-        EmployeeService,
-        LoggerService,
-      ],
+      declarations: [EmployeeListComponent, EmployeeViewComponent],
+      providers: [EmployeeService, LoggerService],
       imports: [
         RouterTestingModule,
         RouterModule,
         SharedModule,
-        HttpClientModule,
-      ],
-    })
-      .compileComponents();
+        HttpClientModule
+      ]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -48,7 +37,7 @@ describe('EmployeeListComponent', () => {
     component = fixture.componentInstance;
 
     employeeService = fixture.debugElement.injector.get(EmployeeService);
-    spyOn(employeeService, 'getEmployees').and.returnValue(Observable.from([]));
+    spyOn(employeeService, 'getEmployees').and.returnValue(from([]));
 
     fixture.detectChanges();
   });
