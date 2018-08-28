@@ -4,7 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
-import { EmployeeService, LoggerService } from 'app/core';
+import { EmployeeService, LoggerService } from '../../core';
 import { NewEmployeeComponent } from './new-employee.component';
 
 describe('NewEmployeeComponent', () => {
@@ -15,17 +15,13 @@ describe('NewEmployeeComponent', () => {
     TestBed.configureTestingModule({
       declarations: [NewEmployeeComponent],
       imports: [
-          ReactiveFormsModule,
-          RouterTestingModule,
-          RouterModule,
-          HttpClientModule,
-        ],
-      providers: [
-        EmployeeService,
-        LoggerService,
+        ReactiveFormsModule,
+        RouterTestingModule,
+        RouterModule,
+        HttpClientModule
       ],
-    })
-    .compileComponents();
+      providers: [EmployeeService, LoggerService]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

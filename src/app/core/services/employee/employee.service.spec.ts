@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { of } from 'rxjs/observable/of';
 
 import { EmployeeService } from './employee.service';
-import { LoggerService } from 'app/core';
+import { LoggerService } from '../logger/logger.service';
 
 describe('EmployeeService', () => {
   let empService: EmployeeService;
@@ -53,11 +53,8 @@ describe('EmployeeService', () => {
   it('should create an instance', () => {
     expect(empService).toBeTruthy();
     TestBed.configureTestingModule({
-      imports: [ HttpClientModule ],
-      providers: [
-        EmployeeService,
-        LoggerService,
-      ]
+      imports: [HttpClientModule],
+      providers: [EmployeeService, LoggerService]
     });
   });
 
