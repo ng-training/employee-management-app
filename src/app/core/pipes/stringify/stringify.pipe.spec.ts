@@ -1,7 +1,6 @@
 import { StringifyPipe } from './stringify.pipe';
 
 describe('Stringify Pipe', () => {
-
   let pipe: StringifyPipe;
 
   beforeEach(() => {
@@ -21,7 +20,7 @@ describe('Stringify Pipe', () => {
   });
 
   it('can handle multiple values', () => {
-    const input = [ '1', '2', '3' ];
+    const input = ['1', '2', '3'];
     const expected = '1, 2, 3';
 
     const output = pipe.transform(input);
