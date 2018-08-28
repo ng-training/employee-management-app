@@ -3,9 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { AppComponent } from './app.component';
 
-import { EmployeeListComponent,
-         EmployeeViewComponent,
-        } from 'app/components';
+import { EmployeeListComponent, EmployeeViewComponent } from './components';
 
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
@@ -13,16 +11,12 @@ import { SharedModule } from './shared/shared.module';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-    declarations: [
+      declarations: [
         AppComponent,
         EmployeeListComponent,
-        EmployeeViewComponent,
+        EmployeeViewComponent
       ],
-      imports: [
-        RouterTestingModule,
-        CoreModule.forRoot(),
-        SharedModule,
-      ]
+      imports: [RouterTestingModule, CoreModule.forRoot(), SharedModule]
     }).compileComponents();
   }));
 
