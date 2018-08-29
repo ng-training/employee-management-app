@@ -1,11 +1,11 @@
-import { NgModule, ModuleWithProviders } from "@angular/core";
+import { NgModule, ModuleWithProviders } from '@angular/core';
 
 import {
   EmployeeService,
   LoggerService,
   ReversePipe,
   PadLeftPipe
-} from "./index";
+} from './index';
 
 @NgModule({
   declarations: [ReversePipe, PadLeftPipe],
