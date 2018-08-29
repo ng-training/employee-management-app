@@ -1,7 +1,7 @@
-import { Pipe, PipeTransform } from "@angular/core";
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: "padLeft"
+  name: 'padLeft'
 })
 export class PadLeftPipe implements PipeTransform {
   transform(value: string, targetLength: number, padString: string): string {
