@@ -1,21 +1,21 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { NgModule, ModuleWithProviders } from "@angular/core";
 
 import {
   EmployeeService,
   LoggerService,
   ReversePipe,
-  StringifyPipe
- } from './index';
+  PadLeftPipe
+} from "./index";
 
 @NgModule({
-    declarations: [ReversePipe, StringifyPipe],
-    exports: [ReversePipe, StringifyPipe]
+  declarations: [ReversePipe, PadLeftPipe],
+  exports: [ReversePipe, PadLeftPipe]
 })
 export class CoreModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: CoreModule,
-      providers: [ EmployeeService, LoggerService ]
+      providers: [EmployeeService, LoggerService]
     };
-  };
+  }
 }
