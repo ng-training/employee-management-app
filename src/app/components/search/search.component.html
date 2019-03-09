@@ -1,0 +1,11 @@
+<form>
+  <div class="form-group search-group">
+    <input
+      class="form-control"
+      #searchInput
+      [placeholder]="placeholderText"
+      (keyup)="onKeyUp(searchInput.value)"
+    />
+    <span class="search-icon"></span>
+  </div>
+</form>
