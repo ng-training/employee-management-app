@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { employees, Employee } from '../../mock-data/employees.mock';
+import { Employee } from '../../mock-data/employees.mock';
+import { EmployeeService } from '../../services';
 
 @Component({
   selector: 'app-employee-list',
   templateUrl: './employee-list.component.html',
 })
 export class EmployeeListComponent implements OnInit {
-  initialEmployees: Employee[] = employees;
+  initialEmployees: Employee[];
   employees: Employee[];
 
+  constructor(private employeesService: EmployeeService) {}
+
   ngOnInit(): void {
+    this.initialEmployees = this.employeesService.getEmployees();
     this.employees = this.initialEmployees;
   }
 

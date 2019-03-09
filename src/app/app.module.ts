@@ -16,7 +16,6 @@ import {
     EmployeeViewComponent,
   ],
   imports: [BrowserModule],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
