@@ -1,0 +1,7 @@
+<div class="list-group employee-list">
+  <a href="#" class="list-group-item" *ngFor="let employee of employees">
+    <img class="pull-left" [src]="employee.picture" [alt]="employee.name" />
+    <h4 class="list-group-item-heading">{{ employee.name }}</h4>
+    <p class="list-group-item-text">({{ employee.position }})</p>
+  </a>
+</div>
