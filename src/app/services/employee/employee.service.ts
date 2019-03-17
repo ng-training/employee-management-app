@@ -15,4 +15,9 @@ export class EmployeeService {
 
     return this.employees;
   }
+
+  getEmployeeById(id: string) {
+    this.logger.log(`Get employee ${id}`);
+    return this.employees.find(e => e.id === id);
+  }
 }

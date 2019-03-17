@@ -10,6 +10,7 @@ import {
   EmployeeListComponent,
   SearchComponent,
   PageNotFoundComponent,
+  EmployeeDetailsComponent,
   EmployeeViewComponent,
 } from './components';
 
@@ -19,6 +20,7 @@ import {
     EmployeeListComponent,
     SearchComponent,
     PageNotFoundComponent,
+    EmployeeDetailsComponent,
     EmployeeViewComponent,
   ],
   imports: [BrowserModule, RouterModule.forRoot(routes)],

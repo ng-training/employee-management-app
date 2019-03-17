@@ -5,7 +5,12 @@
 >
 </app-search>
 <div class="list-group employee-list">
-  <a href="#" class="list-group-item" *ngFor="let employee of employees">
+  <a
+    href="#"
+    class="list-group-item"
+    *ngFor="let employee of employees"
+    [routerLink]="['/employees', employee.id]"
+  >
     <app-employee-view [employee]="employee"></app-employee-view>
   </a>
 </div>
