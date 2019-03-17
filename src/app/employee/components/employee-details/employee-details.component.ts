@@ -20,4 +20,12 @@ export class EmployeeDetailsComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.employee = this.employeeService.getEmployeeById(id);
   }
+
+  changeAddress() {
+    this.employee.address.street += '2';
+  }
+
+  save(value) {
+    console.log(value);
+  }
 }
