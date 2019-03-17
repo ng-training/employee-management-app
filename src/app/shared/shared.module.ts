@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SearchComponent } from './components';
 import { ReversePipe, TitlePrefixPipe } from './pipes';
@@ -11,6 +11,7 @@ import { ReversePipe, TitlePrefixPipe } from './pipes';
   exports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     SearchComponent,
     ReversePipe,
     TitlePrefixPipe,

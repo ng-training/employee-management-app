@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Employee } from '../../../mock-data/employees.mock';
 import { EmployeeService } from '../../../services';
 
@@ -10,7 +11,10 @@ export class EmployeeListComponent implements OnInit {
   initialEmployees: Employee[];
   employees: Employee[];
 
-  constructor(private employeesService: EmployeeService) {}
+  constructor(
+    private employeesService: EmployeeService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.initialEmployees = this.employeesService.getEmployees();
@@ -24,5 +28,9 @@ export class EmployeeListComponent implements OnInit {
           e.name.toLocaleLowerCase().includes(text.toLocaleLowerCase())
         )
       : this.initialEmployees;
+  }
+
+  goToNewEmployee() {
+    this.router.navigateByUrl('employees/new');
   }
 }

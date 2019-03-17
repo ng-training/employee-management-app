@@ -5,6 +5,7 @@ import {
   EmployeeDetailsComponent,
   EmployeeListComponent,
   EmployeeViewComponent,
+  NewEmployeeComponent,
 } from './components';
 import { SharedModule } from '../shared/shared.module';
 
@@ -14,6 +15,7 @@ import { SharedModule } from '../shared/shared.module';
     EmployeeListComponent,
     EmployeeDetailsComponent,
     EmployeeViewComponent,
+    NewEmployeeComponent,
   ],
 })
 export class EmployeeModule {}
