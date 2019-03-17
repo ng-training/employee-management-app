@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { EmployeeService } from '../../../services';
 import { Employee } from '../../../mock-data/employees.mock';
@@ -13,19 +13,26 @@ export class EmployeeDetailsComponent implements OnInit {
 
   constructor(
     public route: ActivatedRoute,
-    public employeeService: EmployeeService
+    public employeeService: EmployeeService,
+    public router: Router
   ) {}
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
-    this.employee = this.employeeService.getEmployeeById(id);
+
+    this.employeeService.getEmployeeById(id).subscribe((employee: Employee) => {
+      this.employee = employee;
+    });
   }
 
   changeAddress() {
     this.employee.address.street += '2';
   }
 
-  save(value) {
-    console.log(value);
+  save(employee: Employee) {
+    employee.id = this.employee.id;
+    this.employeeService.updateEmployee(employee).subscribe(() => {
+      this.router.navigate(['/employees']);
+    });
   }
 }
