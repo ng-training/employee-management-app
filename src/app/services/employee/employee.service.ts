@@ -1,22 +1,29 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+
 import { employees, Employee, Address } from '../../mock-data/employees.mock';
 import { LoggerService } from '../logger/logger.service';
+
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EmployeeService {
   private employees: Employee[] = employees;
-
+  private apiUrl = 'http://localhost:3000/api/employees';
   private defaultUserPicture =
     'https://randomuser.me/api/portraits/thumb/lego/5.jpg';
 
-  constructor(private logger: LoggerService) {}
+  constructor(private logger: LoggerService, private http: HttpClient) {}
 
-  getEmployees(): Employee[] {
+  getEmployees(): Observable<Employee[]> {
     this.logger.log('Get employees');
 
-    return this.employees;
+    return this.http
+      .get<Employee[]>(this.apiUrl)
+      .pipe(catchError(this.handleError));
   }
 
   getEmployeeById(id: string): Employee {
@@ -25,34 +32,17 @@ export class EmployeeService {
   }
 
   addEmployee(employee: Employee) {
-    employee.id = this.getNewId();
     employee.picture = this.defaultUserPicture;
     if (!employee.address) {
       employee.address = <Address>{};
     }
 
-    this.employees.push(employee);
+    return this.http
+      .post(this.apiUrl, employee)
+      .pipe(catchError(this.handleError));
   }
 
-  private getNewId(): string {
-    const s4 = () =>
-      Math.floor((1 + Math.random()) * 0x10000)
-        .toString(16)
-        .substring(1);
-
-    return (
-      s4() +
-      s4() +
-      '-' +
-      s4() +
-      '-' +
-      s4() +
-      '-' +
-      s4() +
-      '-' +
-      s4() +
-      s4() +
-      s4()
-    );
+  handleError(error: HttpErrorResponse) {
+    return throwError(error);
   }
 }

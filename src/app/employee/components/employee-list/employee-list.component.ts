@@ -22,8 +22,10 @@ export class EmployeeListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.initialEmployees = this.employeesService.getEmployees();
-    this.employees = this.initialEmployees;
+    this.employeesService.getEmployees().subscribe((employees: Employee[]) => {
+      this.initialEmployees = employees;
+      this.employees = this.initialEmployees;
+    });
 
     const filteredSearchStream$ = this.searchStream$.pipe(
       debounceTime(200),
@@ -39,6 +41,9 @@ export class EmployeeListComponent implements OnInit {
 
   filterEmployees(text: string = '', onlyDevs: boolean) {
     console.log('Filtering employees', text, onlyDevs);
+    if (!this.employees) {
+      return;
+    }
     this.employees = this.initialEmployees.filter((employee: any) => {
       const matchName =
         text.length === 0 ||
