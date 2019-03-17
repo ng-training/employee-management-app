@@ -47,6 +47,45 @@
       </div>
     </div>
 
+    <div class="col-sm-8">
+      <div class="form-group" [formGroup]="address">
+        <span>Address</span>
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="city">City</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              name="city"
+              id="city"
+              [formControl]="address.controls.city"
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="number">Number</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              name="number"
+              id="number"
+              [formControl]="address.controls.number"
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="street">Street</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              name="street"
+              id="street"
+              [formControl]="address.controls.street"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="form-group">
       <div class="col-sm-10">
         {{ employeeDetailsForm.value | json }}

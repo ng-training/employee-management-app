@@ -8,18 +8,20 @@ import {
 import { Router } from '@angular/router';
 
 import { EmployeeService } from '../../../services';
+import { Employee } from '../../../mock-data/employees.mock';
 
 @Component({
   selector: 'app-new-employee',
   templateUrl: './new-employee.component.html',
 })
 export class NewEmployeeComponent implements OnInit {
-  employee: any;
+  employee: Employee;
 
   name: FormControl;
   position: FormControl;
   email: FormControl;
   employeeDetailsForm: FormGroup;
+  address: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -57,10 +59,17 @@ export class NewEmployeeComponent implements OnInit {
     ]);
     this.email = new FormControl('', [Validators.required]);
 
+    this.address = this.formBuilder.group({
+      city: [''],
+      number: [''],
+      street: [''],
+    });
+
     this.employeeDetailsForm = this.formBuilder.group({
       name: this.name,
       position: this.position,
       email: this.email,
+      address: this.address,
     });
   }
 }
