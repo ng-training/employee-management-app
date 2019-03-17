@@ -4,6 +4,23 @@
   (textChanged)="searchStream$.next($event)"
 >
 </app-search>
+
+<form>
+  <div class="form-group">
+    <div class="checkbox">
+      <label>
+        <input
+          type="checkbox"
+          id="empFilter"
+          #filterCheck
+          (click)="filterStream$.next(filterCheck.checked)"
+        />
+        Show only developers
+      </label>
+    </div>
+  </div>
+</form>
+
 <div class="list-group employee-list">
   <a
     href="#"
