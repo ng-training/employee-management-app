@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 
 import { routes } from './app.routes';
 
+import { SharedModule } from './shared/shared.module';
+
 import {
   EmployeeListComponent,
-  SearchComponent,
   PageNotFoundComponent,
   EmployeeDetailsComponent,
   EmployeeViewComponent,
@@ -18,12 +19,11 @@ import {
   declarations: [
     AppComponent,
     EmployeeListComponent,
-    SearchComponent,
     PageNotFoundComponent,
     EmployeeDetailsComponent,
     EmployeeViewComponent,
   ],
-  imports: [BrowserModule, RouterModule.forRoot(routes)],
+  imports: [BrowserModule, RouterModule.forRoot(routes), SharedModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
