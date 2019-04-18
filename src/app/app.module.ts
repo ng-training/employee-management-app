@@ -6,24 +6,12 @@ import { AppComponent } from './app.component';
 
 import { routes } from './app.routes';
 
-import { SharedModule } from './shared/shared.module';
-
-import {
-  EmployeeListComponent,
-  PageNotFoundComponent,
-  EmployeeDetailsComponent,
-  EmployeeViewComponent,
-} from './components';
+import { PageNotFoundComponent } from './components';
+import { EmployeeModule } from './employee/employee.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    EmployeeListComponent,
-    PageNotFoundComponent,
-    EmployeeDetailsComponent,
-    EmployeeViewComponent,
-  ],
-  imports: [BrowserModule, RouterModule.forRoot(routes), SharedModule],
+  declarations: [AppComponent, PageNotFoundComponent],
+  imports: [BrowserModule, RouterModule.forRoot(routes), EmployeeModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

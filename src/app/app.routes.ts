@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
 
+import { PageNotFoundComponent } from './components';
 import {
   EmployeeListComponent,
-  PageNotFoundComponent,
   EmployeeDetailsComponent,
-} from './components';
+} from './employee/components';
 
 const routes: Routes = [
   {

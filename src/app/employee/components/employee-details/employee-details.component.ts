@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { EmployeeService } from '../../services';
-import { Employee } from '../../mock-data/employees.mock';
+import { EmployeeService } from '../../../services';
+import { Employee } from '../../../mock-data/employees.mock';
 
 @Component({
   selector: 'app-employee-details',
