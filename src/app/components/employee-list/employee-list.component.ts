@@ -7,7 +7,7 @@ import { employees, Employee } from '../../mock-data/employees.mock';
 })
 export class EmployeeListComponent implements OnInit {
   initialEmployees: Employee[] = employees;
-  employees: Employee[];
+  employees: Employee[] = [];
 
   ngOnInit(): void {
     this.employees = this.initialEmployees;
@@ -17,8 +17,8 @@ export class EmployeeListComponent implements OnInit {
     const hasSearchText = text && text.length > 0;
     this.employees = hasSearchText
       ? this.initialEmployees.filter((e) =>
-          e.name.toLocaleLowerCase().includes(text.toLocaleLowerCase())
-        )
+        e.name.toLocaleLowerCase().includes(text.toLocaleLowerCase())
+      )
       : this.initialEmployees;
   }
 }
