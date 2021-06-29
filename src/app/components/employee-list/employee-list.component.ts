@@ -16,7 +16,7 @@ export class EmployeeListComponent implements OnInit {
   filterEmployees(text: string) {
     const hasSearchText = text && text.length > 0;
     this.employees = hasSearchText
-      ? this.initialEmployees.filter(e =>
+      ? this.initialEmployees.filter((e) =>
           e.name.toLocaleLowerCase().includes(text.toLocaleLowerCase())
         )
       : this.initialEmployees;
