@@ -5,7 +5,7 @@ import { Component, Output, Input, EventEmitter } from '@angular/core';
   templateUrl: './search.component.html',
 })
 export class SearchComponent {
-  @Input() placeholderText: string = "";
+  @Input() placeholderText: string = '';
 
   @Output() textChanged = new EventEmitter<string>();
 
