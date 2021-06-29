@@ -7,8 +7,8 @@ import { EmployeeService } from '../../services';
   templateUrl: './employee-list.component.html',
 })
 export class EmployeeListComponent implements OnInit {
-  initialEmployees: Employee[];
-  employees: Employee[];
+  employees: Employee[] = [];
+  initialEmployees: Employee[] = [];
 
   constructor(private employeesService: EmployeeService) {}
 
@@ -21,8 +21,8 @@ export class EmployeeListComponent implements OnInit {
     const hasSearchText = text && text.length > 0;
     this.employees = hasSearchText
       ? this.initialEmployees.filter((e) =>
-          e.name.toLocaleLowerCase().includes(text.toLocaleLowerCase())
-        )
+        e.name.toLocaleLowerCase().includes(text.toLocaleLowerCase())
+      )
       : this.initialEmployees;
   }
 }
