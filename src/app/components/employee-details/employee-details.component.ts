@@ -9,7 +9,7 @@ import { Employee } from '../../mock-data/employees.mock';
   templateUrl: './employee-details.component.html',
 })
 export class EmployeeDetailsComponent implements OnInit {
-  employee: Employee;
+  employee?: Employee;
 
   constructor(
     public route: ActivatedRoute,
@@ -18,6 +18,8 @@ export class EmployeeDetailsComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
-    this.employee = this.employeeService.getEmployeeById(id);
+    if (id !== null) {
+      this.employee = this.employeeService.getEmployeeById(id);
+    }
   }
 }
