@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Employee } from 'app/mock-data/employees.mock';
+import { Employee } from 'src/app/mock-data/employees.mock';
 
 @Component({
   selector: 'app-employee-view',
